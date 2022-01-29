@@ -1,15 +1,37 @@
 ﻿
-        <Menu Theme="MenuTheme.Dark" Mode="MenuMode.Inline" DefaultSelectedKeys=@(new[]{"1"})>
+ <Menu Theme="MenuTheme.Dark" DefaultSelectedKeys=@(new[]{"1"}) Mode="MenuMode.Inline">
             <MenuItem Key="1">
-                <Icon Type="user" Theme="outline" />
-                <span>nav 1</span>
+                <Icon Type="pie-chart" Theme="outline" />
+                <span>Option 1</span>
             </MenuItem>
             <MenuItem Key="2">
-                <Icon Type="video-camera" Theme="outline" />
-                <span>nav 2</span>
+                <Icon Type="desktop" Theme="outline" />
+                <span>Option 2</span>
             </MenuItem>
-            <MenuItem Key="3">
-                <Icon Type="upload" Theme="outline" />
-                <span>nav 3</span>
+            @{
+                RenderFragment sub1Title =
+                    @<span>
+                        <Icon Type="user" Theme="outline"/>
+                        <span>User</span>
+                    </span>;
+            }
+            <SubMenu Key="sub1" TitleTemplate=sub1Title>
+                <MenuItem Key="3">Tom</MenuItem>
+                <MenuItem Key="4">Bill</MenuItem>
+                <MenuItem Key="5">Alex</MenuItem>
+            </SubMenu>
+            @{
+                RenderFragment sub2Title =
+                    @<span>
+                        <Icon Type="team" Theme="outline"/>
+                        <span>Team</span>
+                    </span>;
+            }
+            <SubMenu Key="sub2" TitleTemplate=sub2Title>
+                <MenuItem Key="6">Team 1</MenuItem>
+                <MenuItem Key="8">Team 2</MenuItem>
+            </SubMenu>
+            <MenuItem Key="9">
+                <Icon Type="file" Theme="outline"/>
             </MenuItem>
-        </Menu>s
+        </Menu>

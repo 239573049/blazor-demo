@@ -1,51 +1,38 @@
 ﻿@inherits LayoutComponentBase
-@code
-{
-    bool collapsed;
 
-    void toggle()
-    {
-        collapsed = !collapsed;
-    }
-}
-
-<Layout>
-    <Sider Collapsible Collapsed=@collapsed NoTrigger OnCollapse="OnCollapse">
+<Layout Style="min-height: 100vh; ">
+    <Sider Collapsible Collapsed=@collapsed OnCollapse=@onCollapse>
         <div class="logo" />
-        
         <NavMenu />
     </Sider>
-    <Layout Class="site-layout">
-        <Header Class="site-layout-background" Style="padding: 0;">
-            @if (collapsed)
-            {
-                <Icon Type="menu-unfold" Theme="outline" Class="trigger" OnClick="toggle" />
-            }
-            else
-            {
-                <Icon Type="menu-fold" Theme="outline" Class="trigger" OnClick="toggle" />
-            }
-        </Header>
-        <Content Class="site-layout-background" Style="margin: 24px 16px;padding: 24px;min-height: 280px;">
-            @Body
+    <Layout Class="site-layout" >
+        <Header Class="site-layout-background" Style=" padding: 0 ;" ></Header>
+        <Content Style="margin:0 16px;" >
+            <Breadcrumb Style="margin:16px 0;">
+                <BreadcrumbItem>User</BreadcrumbItem>
+                <BreadcrumbItem>Bill</BreadcrumbItem>
+            </Breadcrumb>
+            <div class="site-layout-background" style="padding: 24; min-height: 360px">
+                @Body
+            </div>
         </Content>
+        <Footer Style="text-align:center ">Ant Design ©2018 Created by Ant UED</Footer>
     </Layout>
 </Layout>
 
-<style>
-    #components-layout-demo-custom-trigger .trigger {
-        font-size: 18px;
-        line-height: 64px;
-        padding: 0 24px;
-        cursor: pointer;
-        transition: color 0.3s;
+
+@code {
+    bool collapsed;
+
+   void onCollapse(bool collapsed) {
+        Console.WriteLine(collapsed);
+        this.collapsed =collapsed;
     }
+}
 
-        #components-layout-demo-custom-trigger .trigger:hover {
-            color: #1890ff;
-        }
 
-    #components-layout-demo-custom-trigger .logo {
+<style>
+    #components-layout-demo-side .logo {
         height: 32px;
         background: rgba(255, 255, 255, 0.2);
         margin: 16px;
@@ -55,13 +42,3 @@
         background: #fff;
     }
 </style>
-
-
-@code{
-
-    void OnCollapse(bool isCollapsed)
-    {
-        Console.WriteLine($"Collapsed: {isCollapsed}");
-    }
-
-}

@@ -10,7 +10,12 @@
       "ProjectGuid": "08293239-046a-437e-8027-d4b391aa35d0",
       "DisplayName": "BlazorApp.Client",
       "ColorIndex": 1
+    },
+    "d881dc79-eabe-4d78-bf66-ad8ab7d6c7a6": {
+      "ProjectGuid": "d881dc79-eabe-4d78-bf66-ad8ab7d6c7a6",
+      "DisplayName": "Application",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 3
 }

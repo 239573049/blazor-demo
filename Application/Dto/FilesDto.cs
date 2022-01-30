@@ -27,6 +27,10 @@ namespace Application.Dto
         /// 权限信息
         /// </summary>
         public string? Root { get; set; }
+        /// <summary>
+        /// 是否文件
+        /// </summary>
+        public bool IsFile { get; set; }
     }
 
 }

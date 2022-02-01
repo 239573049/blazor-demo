@@ -1,5 +1,5 @@
-﻿using Application.Services;
-using Microsoft.AspNetCore.Http;
+﻿using Application.Dto;
+using Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorApp.Server.Controllers
@@ -15,10 +15,26 @@ namespace BlazorApp.Server.Controllers
         {
             _fileService = fileServic;
         }
+        /// <summary>
+        /// 是否存在
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult IsExit(string filePath)
         {
             return new OkObjectResult(_fileService.IsExitFile(filePath));
         }
+        /// <summary>
+        /// 获取文件列表
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public List<FilesDto> GetFileData(string filePath)
+        {
+            return _fileService.GetFileData(filePath);
+        }
+
     }
 }

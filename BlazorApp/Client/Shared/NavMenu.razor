@@ -1,37 +1,26 @@
 ﻿
  <Menu Theme="MenuTheme.Dark" DefaultSelectedKeys=@(new[]{"1"}) Mode="MenuMode.Inline">
             <MenuItem Key="1">
+                <NavLink href="/">
                 <Icon Type="pie-chart" Theme="outline" />
-                <span>Option 1</span>
+                <span>首页</span>
+                </NavLink>
             </MenuItem>
             <MenuItem Key="2">
+                <NavLink href="userAdmin">
                 <Icon Type="desktop" Theme="outline" />
-                <span>Option 2</span>
+                <span>用户管理</span></NavLink>
             </MenuItem>
-            @{
-                RenderFragment sub1Title =
-                    @<span>
-                        <Icon Type="user" Theme="outline"/>
-                        <span>User</span>
-                    </span>;
-            }
-            <SubMenu Key="sub1" TitleTemplate=sub1Title>
-                <MenuItem Key="3">Tom</MenuItem>
-                <MenuItem Key="4">Bill</MenuItem>
-                <MenuItem Key="5">Alex</MenuItem>
-            </SubMenu>
-            @{
-                RenderFragment sub2Title =
-                    @<span>
-                        <Icon Type="team" Theme="outline"/>
-                        <span>Team</span>
-                    </span>;
-            }
-            <SubMenu Key="sub2" TitleTemplate=sub2Title>
-                <MenuItem Key="6">Team 1</MenuItem>
-                <MenuItem Key="8">Team 2</MenuItem>
-            </SubMenu>
-            <MenuItem Key="9">
+            <MenuItem Key="3">
+                <NavLink href="fileAdmin">
                 <Icon Type="file" Theme="outline"/>
+                <span>文件管理</span>
+                </NavLink>
+            </MenuItem>
+            <MenuItem Key="34">
+                <NavLink href="serverAdmin">
+                <Icon Type="file" Theme="outline"/>
+                <span>服务器管理</span>
+                </NavLink>
             </MenuItem>
         </Menu>

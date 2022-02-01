@@ -1,9 +1,4 @@
 ﻿using Application.Dto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Services
 {
@@ -15,6 +10,11 @@ namespace Application.Services
         /// <param name="fille"></param>
         /// <returns></returns>
         bool IsExitFile(string fille);
+        /// <summary>
+        /// 获取文件列表
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         List<FilesDto> GetFileData(string filePath);
         /// <summary>
         /// 获取文件大小
@@ -28,7 +28,6 @@ namespace Application.Services
     {
         public List<FilesDto> GetFileData(string filePath)
         {
-
             if (Directory.Exists(filePath))
                 return new List<FilesDto>();
             var files=new List<FilesDto>();

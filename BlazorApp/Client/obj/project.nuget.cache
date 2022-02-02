@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "AUPLuhy8Xoaw/IVXwLa3gpwLsFHccZSjEmPABw8jUTWhgbmALDEsvEyGTsGQX+xQr7L3NsZMEF/vQ7+Mmq5jLA==",
+  "dgSpecHash": "tkhuHl/IjSGe5yFDaQCaT6LAjfxt1oeHg6LhHynpRw8Xq4fbLLZJ4wO4gjUjhfpza218TEXIeA9z4V0BBdBo7g==",
   "success": true,
   "projectFilePath": "E:\\source\\BlazorApp\\BlazorApp\\Client\\BlazorApp.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\antdesign\\0.10.3.1\\antdesign.0.10.3.1.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\antdesign.charts\\0.2.2\\antdesign.charts.0.2.2.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.1\\microsoft.aspnetcore.authorization.6.0.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.1\\microsoft.aspnetcore.components.6.0.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.1\\microsoft.aspnetcore.components.analyzers.6.0.1.nupkg.sha512",

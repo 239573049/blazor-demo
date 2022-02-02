@@ -22,6 +22,25 @@
           "buildMultiTargeting/AntDesign.props": {}
         }
       },
+      "AntDesign.Charts/0.2.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "5.0.5",
+          "OneOf": "2.1.151"
+        },
+        "compile": {
+          "lib/net5.0/AntDesign.Charts.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/AntDesign.Charts.dll": {}
+        },
+        "build": {
+          "buildTransitive/AntDesign.Charts.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/AntDesign.Charts.props": {}
+        }
+      },
       "Microsoft.AspNetCore.Authorization/6.0.1": {
         "type": "package",
         "dependencies": {
@@ -1637,6 +1656,25 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/AntDesign.props": {}
+        }
+      },
+      "AntDesign.Charts/0.2.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "5.0.5",
+          "OneOf": "2.1.151"
+        },
+        "compile": {
+          "lib/net5.0/AntDesign.Charts.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/AntDesign.Charts.dll": {}
+        },
+        "build": {
+          "buildTransitive/AntDesign.Charts.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/AntDesign.Charts.props": {}
         }
       },
       "Microsoft.AspNetCore.Authorization/6.0.1": {
@@ -3592,6 +3630,24 @@
         "staticwebassets/less/upload/style/entry.less",
         "staticwebassets/less/upload/style/index.less",
         "staticwebassets/less/upload/style/rtl.less"
+      ]
+    },
+    "AntDesign.Charts/0.2.2": {
+      "sha512": "zmd9cGVO574bTP+ZEEg4u7eWG/VBqiqZ3ToGZFa0SV45/xIfltUTtYHGdg9Avu1NPHWFAwIdJlT+RmhwKb/ZCw==",
+      "type": "package",
+      "path": "antdesign.charts/0.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "antdesign.charts.0.2.2.nupkg.sha512",
+        "antdesign.charts.nuspec",
+        "build/AntDesign.Charts.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/AntDesign.Charts.props",
+        "buildTransitive/AntDesign.Charts.props",
+        "lib/net5.0/AntDesign.Charts.dll",
+        "lib/netstandard2.1/AntDesign.Charts.dll",
+        "staticwebassets/ant-design-charts-blazor.js"
       ]
     },
     "Microsoft.AspNetCore.Authorization/6.0.1": {
@@ -8101,6 +8157,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "AntDesign >= 0.10.3.1",
+      "AntDesign.Charts >= 0.2.2",
       "BlazorApp.Shared >= 1.0.0",
       "Microsoft.AspNetCore.Components.WebAssembly >= 6.0.1",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 6.0.1"
@@ -8157,6 +8214,10 @@
           "AntDesign": {
             "target": "Package",
             "version": "[0.10.3.1, )"
+          },
+          "AntDesign.Charts": {
+            "target": "Package",
+            "version": "[0.2.2, )"
           },
           "Microsoft.AspNetCore.Components.WebAssembly": {
             "target": "Package",

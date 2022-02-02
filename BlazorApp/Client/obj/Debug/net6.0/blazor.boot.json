@@ -8,6 +8,7 @@
   "resources": {
     "assembly": {
       "AntDesign.dll": "sha256-7gWXgOLG8A9tXBRmAR+3fSIL1VKNlOg46cX3oSjW9gs=",
+      "AntDesign.Charts.dll": "sha256-tp5tbXL+uvhx746IuvyQ\/IsptnDwgcNtJsmJhB4+Rls=",
       "Microsoft.AspNetCore.Authorization.dll": "sha256-hGbT4jDhpi63093bjGt+4XVJ3Z9t1FVbmgNmYYmpiNY=",
       "Microsoft.AspNetCore.Components.dll": "sha256-NJ2GmZOAzlolS7ZPvt5guh86ICBupqwCNK0ygg7fkhE=",
       "Microsoft.AspNetCore.Components.DataAnnotations.Validation.dll": "sha256-VGaB03HIjFg4jeK7BomIFzlhhY3vW5N+jWuRqZkbJsY=",
@@ -200,14 +201,14 @@
       "netstandard.dll": "sha256-E5RFhGIaDH5QM6BEbFUuHU8U9wP6N6jbo5MCttzLOCM=",
       "System.Private.CoreLib.dll": "sha256-9NtEbYixyog7vUmeYXyyqzfBXUYl8wxoVQ26Ji7sNRg=",
       "BlazorApp.Shared.dll": "sha256-cLD4UTOMmd\/lTDiJzFs7nd03mP8KXb\/CJuSjACe1txg=",
-      "BlazorApp.Client.dll": "sha256-sGlVsZPMe1zkATR5jUHfM1y0Z\/ZL4wGNOIYzfuRp1Ec="
+      "BlazorApp.Client.dll": "sha256-qRQsovfaFSu8p6\/\/y7phc9ZOJGh5NhE4MjxxP5n9cR4="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
       "BlazorApp.Shared.pdb": "sha256-HamiqUukpLZqARVjeCeE0mKw6JYvEhQ1viYJruu\/Ruo=",
-      "BlazorApp.Client.pdb": "sha256-c553IDIKdrFc3hOKusVpyIfRbSsAwaB6CVXzj8QP6Dk="
+      "BlazorApp.Client.pdb": "sha256-uTnNGSkwowdMISUVWZybx6AltHa9bHbTFb1UyrEDVVg="
     },
     "runtime": {
       "dotnet.6.0.1.v4uzohsjnn.js": "sha256-awQsJ\/WxYhouHPuE+i3eJqjA4XClQlr2rD6nKvW80ww=",

@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "KlEAgugrXu0ZbbdcnOM2cnQsZRtLuinu96dxlK/62i5T9QbEAE9I1LGoWC+gH15r33qslMHwue/XEpWVfelGWQ==",
+  "dgSpecHash": "CJaOanMPrncfRlUdzqvqpM+oNntE/JKC1IL/gLds9CaxERDN1OjhWPL5rvLhdqH6bJQ+QVotLeQ3SZ0dhDMAYg==",
   "success": true,
   "projectFilePath": "E:\\source\\BlazorApp\\BlazorApp\\Server\\BlazorApp.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\antdesign\\0.10.3.1\\antdesign.0.10.3.1.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\antdesign.charts\\0.2.2\\antdesign.charts.0.2.2.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\autofac\\6.3.0\\autofac.6.3.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.2.0\\autofac.extensions.dependencyinjection.7.2.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.1\\microsoft.aspnetcore.authorization.6.0.1.nupkg.sha512",

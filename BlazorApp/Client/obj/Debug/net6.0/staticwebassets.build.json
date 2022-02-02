@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gStQ7lTOksTppzT4ctgoqoQvNNMUvQLn+oRVzj3xOds=",
+  "Hash": "h7A2aCTZhIDrlbyvSJFOtw595uRXPTikr4Cw1xYwSrc=",
   "Source": "BlazorApp.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -16,6 +16,23 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\Administrator\\.nuget\\packages\\antdesign.charts\\0.2.2\\staticwebassets\\ant-design-charts-blazor.js",
+      "SourceId": "AntDesign.Charts",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Administrator\\.nuget\\packages\\antdesign.charts\\0.2.2\\staticwebassets\\",
+      "BasePath": "_content/AntDesign.Charts",
+      "RelativePath": "ant-design-charts-blazor.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Administrator\\.nuget\\packages\\antdesign.charts\\0.2.2\\staticwebassets\\ant-design-charts-blazor.js"
+    },
     {
       "Identity": "C:\\Users\\Administrator\\.nuget\\packages\\antdesign\\0.10.3.1\\staticwebassets\\css\\ant-design-blazor.aliyun.css",
       "SourceId": "AntDesign",
@@ -5523,6 +5540,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Administrator\\.nuget\\packages\\antdesign\\0.10.3.1\\staticwebassets\\less\\upload\\style\\rtl.less"
+    },
+    {
+      "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\AntDesign.Charts.dll",
+      "SourceId": "BlazorApp.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/AntDesign.Charts.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Administrator\\.nuget\\packages\\antdesign.charts\\0.2.2\\lib\\net5.0\\AntDesign.Charts.dll"
     },
     {
       "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\AntDesign.dll",
@@ -11524,6 +11558,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Net.WebClient.dll"
+    },
+    {
+      "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\obj\\Debug\\net6.0\\build-gz\\qTrTnIWq.gz",
+      "SourceId": "BlazorApp.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/AntDesign.Charts.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\AntDesign.Charts.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\AntDesign.Charts.dll"
     },
     {
       "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\obj\\Debug\\net6.0\\build-gz\\Ras2bPSc.gz",

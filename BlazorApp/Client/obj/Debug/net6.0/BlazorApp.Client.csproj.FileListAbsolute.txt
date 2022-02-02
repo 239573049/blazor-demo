@@ -837,3 +837,7 @@ E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\BlazorApp.Client.csproj.Co
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\BlazorApp.Client.dll
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\ref\BlazorApp.Client.dll
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\BlazorApp.Client.pdb
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\AntDesign.Charts.dll
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\AntDesign.Charts.dll.gz
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\AntDesign.Charts.dll
+E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\qTrTnIWq.gz

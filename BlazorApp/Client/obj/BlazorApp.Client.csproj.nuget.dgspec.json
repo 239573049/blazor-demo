@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[0.2.2, )"
             },
+            "Fable.Builders.AntDesignCharts": {
+              "target": "Package",
+              "version": "[3.152.0, )"
+            },
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",
               "version": "[6.0.1, )"

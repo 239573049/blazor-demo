@@ -1,34 +1,30 @@
-﻿<Line Data="data" Config="config" />
+﻿<div>
+    <Carousel>
+        <CarouselSlick>
+            <h3>1</h3>
+        </CarouselSlick>
+        <CarouselSlick>
+            <h3>2</h3>
+        </CarouselSlick>
+        <CarouselSlick>
+            <h3>3</h3>
+        </CarouselSlick>
+        <CarouselSlick>
+            <h3>4</h3>
+        </CarouselSlick>
+    </Carousel>
+</div>
 
-@code{
-    object[] data = new object[] {
-        new  { year= "1991", value= 3 },
-        new  { year= "1992", value= 4 },
-        new  { year= "1993", value= 3.5 },
-        new  { year= "1994", value= 5 },
-        new  { year= "1995", value= 4.9 },
-        new  { year= "1996", value= 6 },
-        new  { year= "1997", value= 7 },
-        new  { year= "1998", value= 9 },
-        new  { year= "1999", value= 13 },
-};
+<style>
+    .ant-carousel .slick-slide {
+        text-align: center;
+        height: 160px;
+        line-height: 160px;
+        background: #364d79;
+        overflow: hidden;
+    }
 
-    AntDesign.Charts.LineConfig config = new AntDesign.Charts.LineConfig()
-    {
-        Title = new AntDesign.Charts.Title()
-        {
-            Visible = true,
-            Text = "曲线折线图",
-        },
-        Description = new AntDesign.Charts.Description()
-        {
-            Visible = true,
-            Text = "用平滑的曲线代替折线。",
-        },
-        Padding = "auto",
-        ForceFit = true,
-        XField = "year",
-        YField = "value",
-        Smooth = true,
-    };
-}
+        .ant-carousel .slick-slide h3 {
+            color: #fff;
+        }
+</style>

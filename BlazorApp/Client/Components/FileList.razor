@@ -1,0 +1,35 @@
+﻿
+    <Layout>
+        <Header>
+             <Search 
+			Size="@InputSize.Large" 
+            Placeholder="请输入路径" OnChange="(e)=>Handle(e)" EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" />
+        </Header>
+        <Content>Content</Content>
+    </Layout>
+
+@code {
+    
+@inject MessageService message;
+    private string? _path { get; set; }
+    private bool loading;
+
+    private void Handle(string value)
+    {
+        Console.WriteLine(value);
+    }
+
+    public async Task OnSearch()
+    {
+        await message.Loading($"searching {_path}", 2);
+    }
+
+    private async Task OnEnter(KeyboardEventArgs e)
+    {
+        Console.WriteLine("Enter pressed");
+        loading = true;
+        await Task.Delay(3000);
+        loading = false;        
+    }
+
+}

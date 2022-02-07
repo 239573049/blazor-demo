@@ -2,3 +2,5 @@
 /Application/bin
 /BlazorApp/Client/bin
 /BlazorApp/Shared/bin
+/BlazorApp/Server/bin
+/Entitys/bin

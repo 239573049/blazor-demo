@@ -1,35 +1,68 @@
-﻿
-    <Layout>
-        <Header>
-             <Search 
-			Size="@InputSize.Large" 
-            Placeholder="请输入路径" OnChange="(e)=>Handle(e)" EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" />
-        </Header>
-        <Content>Content</Content>
-    </Layout>
+﻿@using System.ComponentModel
+@using AntDesign.TableModels
+@using Entitys.File;
+@inject HttpClient Http
+<div>
+    <div>
 
+        <Search Size="@InputSize.Large"
+                Placeholder="请输入路径" OnChange="(e)=>Handle(e)" EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" />
+    </div>
+    <div>
+        <Table DataSource="data" ScrollY="600px" PageSize="150">
+            <Selection />
+            <AntDesign.Column @bind-Field="@context.Name" Width="150" />
+            <AntDesign.Column @bind-Field="@context.Length" Width="150" />
+            <AntDesign.Column @bind-Field="@context.Root" />
+            
+            <ActionColumn Title="操作">
+                @if (@context.IsFile)
+                {
+                    <Button Type="@ButtonType.Text">编辑</Button>
+                    <Button Type="@ButtonType.Text">删除</Button>
+                    <Button Type="@ButtonType.Text">重命名</Button>
+                    <Button Type="@ButtonType.Text">压缩</Button>
+                }
+                else
+                {
+                    <Button Type="@ButtonType.Text">打开</Button>
+                    <Button Type="@ButtonType.Text">删除</Button>
+                    <Button Type="@ButtonType.Text">重命名</Button>
+                    <Button Type="@ButtonType.Text">压缩</Button>
+                }
+            </ActionColumn>
+        </Table>
+    </div>
+</div>
 @code {
-    
-@inject MessageService message;
-    private string? _path { get; set; }
+    private List<FilesDto> data=new List<FilesDto>();
+    @inject MessageService message;
+    private string? _path { get; set; } = @"E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0";
     private bool loading;
 
     private void Handle(string value)
     {
         Console.WriteLine(value);
     }
-
+    
+    protected override async void OnInitialized()
+    {
+        await GetFileData();
+    }
     public async Task OnSearch()
     {
-        await message.Loading($"searching {_path}", 2);
+        await GetFileData();
     }
-
+    private async Task GetFileData()
+    {
+       var data=Http.GetFromJsonAsync<object>("/api/File/GetFileData?filePath="+_path);
+    }
     private async Task OnEnter(KeyboardEventArgs e)
     {
         Console.WriteLine("Enter pressed");
         loading = true;
         await Task.Delay(3000);
-        loading = false;        
+        loading = false;
     }
 
 }

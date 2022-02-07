@@ -32,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\source\\BlazorApp\\BlazorApp\\Shared\\BlazorApp.Shared.csproj": {
-                "projectPath": "E:\\source\\BlazorApp\\BlazorApp\\Shared\\BlazorApp.Shared.csproj"
+              "E:\\source\\BlazorApp\\Entitys\\Entitys.csproj": {
+                "projectPath": "E:\\source\\BlazorApp\\Entitys\\Entitys.csproj"
               }
             }
           }
@@ -100,14 +100,14 @@
         }
       }
     },
-    "E:\\source\\BlazorApp\\BlazorApp\\Shared\\BlazorApp.Shared.csproj": {
+    "E:\\source\\BlazorApp\\Entitys\\Entitys.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\source\\BlazorApp\\BlazorApp\\Shared\\BlazorApp.Shared.csproj",
-        "projectName": "BlazorApp.Shared",
-        "projectPath": "E:\\source\\BlazorApp\\BlazorApp\\Shared\\BlazorApp.Shared.csproj",
+        "projectUniqueName": "E:\\source\\BlazorApp\\Entitys\\Entitys.csproj",
+        "projectName": "Entitys",
+        "projectPath": "E:\\source\\BlazorApp\\Entitys\\Entitys.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\source\\BlazorApp\\BlazorApp\\Shared\\obj\\",
+        "outputPath": "E:\\source\\BlazorApp\\Entitys\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

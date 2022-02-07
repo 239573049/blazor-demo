@@ -1821,14 +1821,14 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "BlazorApp.Shared/1.0.0": {
+      "Entitys/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
-          "bin/placeholder/BlazorApp.Shared.dll": {}
+          "bin/placeholder/Entitys.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BlazorApp.Shared.dll": {}
+          "bin/placeholder/Entitys.dll": {}
         }
       }
     },
@@ -3666,14 +3666,14 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "BlazorApp.Shared/1.0.0": {
+      "Entitys/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
-          "bin/placeholder/BlazorApp.Shared.dll": {}
+          "bin/placeholder/Entitys.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BlazorApp.Shared.dll": {}
+          "bin/placeholder/Entitys.dll": {}
         }
       }
     }
@@ -8759,17 +8759,17 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "BlazorApp.Shared/1.0.0": {
+    "Entitys/1.0.0": {
       "type": "project",
-      "path": "../Shared/BlazorApp.Shared.csproj",
-      "msbuildProject": "../Shared/BlazorApp.Shared.csproj"
+      "path": "../../Entitys/Entitys.csproj",
+      "msbuildProject": "../../Entitys/Entitys.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "AntDesign >= 0.10.3.1",
       "AntDesign.Charts >= 0.2.2",
-      "BlazorApp.Shared >= 1.0.0",
+      "Entitys >= 1.0.0",
       "Fable.Builders.AntDesignCharts >= 3.152.0",
       "Microsoft.AspNetCore.Components.WebAssembly >= 6.0.1",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 6.0.1"
@@ -8807,8 +8807,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\source\\BlazorApp\\BlazorApp\\Shared\\BlazorApp.Shared.csproj": {
-              "projectPath": "E:\\source\\BlazorApp\\BlazorApp\\Shared\\BlazorApp.Shared.csproj"
+            "E:\\source\\BlazorApp\\Entitys\\Entitys.csproj": {
+              "projectPath": "E:\\source\\BlazorApp\\Entitys\\Entitys.csproj"
             }
           }
         }

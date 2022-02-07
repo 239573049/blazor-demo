@@ -3,8 +3,6 @@ E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\blazor.
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\blazor.webassembly.js
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\BlazorApp.Client.dll
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\BlazorApp.Client.pdb
-E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\BlazorApp.Shared.dll
-E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\BlazorApp.Shared.pdb
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\dotnet.6.0.1.v4uzohsjnn.js
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\dotnet.timezones.blat
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\dotnet.wasm
@@ -320,7 +318,6 @@ E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\System.
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\System.Security.SecureString.dll.gz
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\Microsoft.Extensions.Logging.dll.gz
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\Microsoft.Win32.Registry.dll.gz
-E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\BlazorApp.Shared.dll.gz
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\System.Threading.dll.gz
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\System.Configuration.dll.gz
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\System.Runtime.InteropServices.dll.gz
@@ -329,7 +326,6 @@ E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\System.
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\System.Reflection.Emit.dll.gz
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\System.IO.Pipelines.dll.gz
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\System.Security.Principal.Windows.dll.gz
-E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\BlazorApp.Shared.pdb.gz
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\System.Console.dll.gz
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\System.Reflection.Extensions.dll.gz
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\Microsoft.Extensions.Configuration.dll.gz
@@ -612,8 +608,6 @@ E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\icudt.dat
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\icudt_CJK.dat
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\icudt_EFIGS.dat
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\icudt_no_CJK.dat
-E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\BlazorApp.Shared.dll
-E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\BlazorApp.Shared.pdb
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\BlazorApp.Client.csproj.AssemblyReference.cache
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\BlazorApp.Client.GeneratedMSBuildEditorConfig.editorconfig
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\BlazorApp.Client.AssemblyInfoInputs.cache
@@ -819,8 +813,6 @@ E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\XS+9x+Cu.gz
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\+zXH2dzk.gz
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\GAdn8AMq.gz
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\V+ftYHMG.gz
-E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\M65yBLxx.gz
-E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\nLnVjY+V.gz
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\HSBj0tgb.gz
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\7ZHAm6xe.gz
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\gtliXzvG.gz
@@ -941,3 +933,11 @@ E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\QLyEsc1b.gz
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\y+lo+xLL.gz
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\t5sv8YCs.gz
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\qQIJIRoV.gz
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\Entitys.dll
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\Entitys.pdb
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\Entitys.dll.gz
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\Entitys.pdb.gz
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\Entitys.dll
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\Entitys.pdb
+E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\K7DxUFCI.gz
+E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\voZ+ov8E.gz

@@ -1,4 +1,4 @@
-﻿using Application.Dto;
+﻿using Entitys.File;
 
 namespace Application.Services
 {
@@ -24,7 +24,7 @@ namespace Application.Services
         long? GetFileLength(string filePath); 
 
     }
-    public class FiFileSipub : IFileService
+    public class FileService : IFileService
     {
         public List<FilesDto> GetFileData(string filePath)
         {

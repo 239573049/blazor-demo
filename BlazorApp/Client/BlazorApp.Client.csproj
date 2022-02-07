@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shared\BlazorApp.Shared.csproj" />
+    <ProjectReference Include="..\..\Entitys\Entitys.csproj" />
   </ItemGroup>
 
   <ItemGroup>

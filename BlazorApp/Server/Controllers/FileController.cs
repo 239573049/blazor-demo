@@ -1,5 +1,5 @@
-﻿using Application.Dto;
-using Application.Services;
+﻿using Application.Services;
+using Entitys.File;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlazorApp.Server.Controllers

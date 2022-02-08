@@ -608,7 +608,6 @@ E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\icudt.dat
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\icudt_CJK.dat
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\icudt_EFIGS.dat
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\icudt_no_CJK.dat
-E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\BlazorApp.Client.csproj.AssemblyReference.cache
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\BlazorApp.Client.GeneratedMSBuildEditorConfig.editorconfig
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\BlazorApp.Client.AssemblyInfoInputs.cache
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\BlazorApp.Client.AssemblyInfo.cs
@@ -941,3 +940,4 @@ E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\Entitys.dll
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\Entitys.pdb
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\K7DxUFCI.gz
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\voZ+ov8E.gz
+E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\BlazorApp.Client.csproj.AssemblyReference.cache

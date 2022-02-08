@@ -1,21 +1,35 @@
 ﻿using Entitys.File;
 using System.Net.Http.Json;
-
+using Entitys.Web;
 namespace BlazorApp.Client.Api
 {
 
-    public class FileAdminApi: Request
+    public class FileAdminApi
     {
-        public static string Modules = "/api/File/";
-        public static async Task<List<FilesDto>> GetFileData(string path)
+        private readonly HttpClient Http;
+        public FileAdminApi(HttpClient http)
         {
-            var data = await Http.GetFromJsonAsync<List<FilesDto>>(Modules+"GetFileData?filePath=" + path);
-            return data??new List<FilesDto>();
+            Http=http;
         }
-        public static async Task<bool> DeleteFile(string path)
+        public static string Modules = "/api/File/";
+        public  async Task<List<FilesDto>> GetFileData(string path)
         {
-            var data= await Http.DeleteAsync(path);
-            return await data.Content.ReadFromJsonAsync<bool>();
+            var data = await Http.GetFromJsonAsync<ModelStateResult<List<FilesDto>>>(Modules+"GetFileData?filePath=" + path);
+            if (data!=null&&data.StatusCode == 200)
+            {
+                return data.Data!;
+            }
+            return new List<FilesDto>();
+        }
+        public async Task<bool> DeleteFile(string path)
+        {
+            var data= await Http.DeleteAsync(Modules+ "DeleteFile?filePath=" + path);
+            return (await data.Content.ReadFromJsonAsync<ModelStateResult<bool>>()).Data;
+        }
+        public async Task<bool> DeleteDirectory(string path)
+        {
+            var data = await Http.DeleteAsync(Modules + "DeleteDirectory?directoryPath=" + path);
+            return (await data.Content.ReadFromJsonAsync<ModelStateResult<bool>>()).Data;
         }
     }
 }

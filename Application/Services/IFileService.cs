@@ -1,4 +1,5 @@
 ﻿using Entitys.File;
+using Utils;
 
 namespace Application.Services
 {
@@ -28,13 +29,32 @@ namespace Application.Services
         /// <param name="filePath"></param>
         /// <returns></returns>
         bool DeleteFile(string filePath);
-
+        /// <summary>
+        /// 删除文件夹
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <returns></returns>
+        bool DeleteDirectory(string directoryPath);
     }
     public class FileService : IFileService
     {
+        public bool DeleteDirectory(string directoryPath)
+        {
+            try
+            {
+                if (!Directory.Exists(directoryPath)) throw new BusinessLogicException("文件夹不存在");
+                Directory.Delete(directoryPath, true);
+                return true;
+            }
+            catch (IOException)
+            {
+                throw new BusinessLogicException("删除失败");
+            }
+        }
+
         public bool DeleteFile(string filePath)
         {
-            if (!File.Exists(filePath))return true;
+            if (!File.Exists(filePath)) throw new BusinessLogicException("文件不存在");
             File.Delete(filePath);  
             return true;
         }
@@ -54,6 +74,7 @@ namespace Application.Services
             {
                 var file = new FilesDto {Name=d.Replace(filePath,""),IsFile=true,Path=d};
                 file.Length=GetFileLength(d);
+                file.LengthName = FileUtil.GetSizeFormat(file.Length);
                 files.Add(file);
             }
             return files;
@@ -61,9 +82,16 @@ namespace Application.Services
 
         public long? GetFileLength(string filePath)
         {
-            using(var file = File.OpenRead(filePath))
+            try
             {
-                return file.Length;
+                using (var file = File.OpenRead(filePath))
+                {
+                    return file.Length;
+                }
+            }
+            catch (IOException)
+            {
+                return 0;
             }
             
         }

@@ -15,7 +15,6 @@ namespace Entitys.File
         /// <summary>
         /// 文件大小
         /// </summary>
-        [DisplayName("文件大小")]
         public long? Length { get; set; }
         /// <summary>
         /// 完整路径
@@ -30,6 +29,8 @@ namespace Entitys.File
         /// 是否文件
         /// </summary>
         public bool IsFile { get; set; }
+        [DisplayName("文件大小")]
+        public string? LengthName { get; set; }
     }
 
 }

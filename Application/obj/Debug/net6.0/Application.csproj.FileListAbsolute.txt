@@ -13,3 +13,5 @@ E:\source\BlazorApp\Application\obj\Debug\net6.0\Application.pdb
 E:\source\BlazorApp\Application\bin\Debug\net6.0\Entitys.dll
 E:\source\BlazorApp\Application\bin\Debug\net6.0\Entitys.pdb
 E:\source\BlazorApp\Application\obj\Debug\net6.0\Application.csproj.CopyComplete
+E:\source\BlazorApp\Application\bin\Debug\net6.0\Utils.dll
+E:\source\BlazorApp\Application\bin\Debug\net6.0\Utils.pdb

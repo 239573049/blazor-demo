@@ -1,5 +1,6 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using BlazorApp.Server.Global;
 using Microsoft.AspNetCore.ResponseCompression;
 using System.Reflection;
 
@@ -9,12 +10,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-
+builder.Services.AddControllers(o =>
+{
+    o.Filters.Add(typeof(GlobalExceptionsFilter));
+    o.Filters.Add(typeof(GlobalResponseFilter));
+    o.Filters.Add(typeof(GlobalModelStateValidationFilter));
+});
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());//覆盖用于创建服务提供者的工厂
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>//依赖注入
 {
     var basePath = AppDomain.CurrentDomain.BaseDirectory;
-
     var servicesDllFile = Path.Combine(basePath, "Application.dll");//需要依赖注入的项目生成的dll文件名称
     var assemblysServices = Assembly.LoadFrom(servicesDllFile);
     containerBuilder.RegisterAssemblyTypes(assemblysServices)

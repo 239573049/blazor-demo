@@ -34,6 +34,9 @@
             "projectReferences": {
               "E:\\source\\BlazorApp\\Entitys\\Entitys.csproj": {
                 "projectPath": "E:\\source\\BlazorApp\\Entitys\\Entitys.csproj"
+              },
+              "E:\\source\\BlazorApp\\Utils\\Utils.csproj": {
+                "projectPath": "E:\\source\\BlazorApp\\Utils\\Utils.csproj"
               }
             }
           }
@@ -195,6 +198,9 @@
               },
               "E:\\source\\BlazorApp\\BlazorApp\\Client\\BlazorApp.Client.csproj": {
                 "projectPath": "E:\\source\\BlazorApp\\BlazorApp\\Client\\BlazorApp.Client.csproj"
+              },
+              "E:\\source\\BlazorApp\\Utils\\Utils.csproj": {
+                "projectPath": "E:\\source\\BlazorApp\\Utils\\Utils.csproj"
               }
             }
           }
@@ -220,6 +226,14 @@
             "Microsoft.AspNetCore.Components.WebAssembly.Server": {
               "target": "Package",
               "version": "[6.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
             }
           },
           "imports": [
@@ -252,6 +266,64 @@
         "projectPath": "E:\\source\\BlazorApp\\Entitys\\Entitys.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
         "outputPath": "E:\\source\\BlazorApp\\Entitys\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\source\\BlazorApp\\Utils\\Utils.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\source\\BlazorApp\\Utils\\Utils.csproj",
+        "projectName": "Utils",
+        "projectPath": "E:\\source\\BlazorApp\\Utils\\Utils.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "E:\\source\\BlazorApp\\Utils\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -77,3 +77,11 @@ E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\zh-Hans\FSharp.Core.resour
 E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\zh-Hant\FSharp.Core.resources.dll
 E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\Entitys.dll
 E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\Entitys.pdb
+E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\Microsoft.OpenApi.dll
+E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\Utils.dll
+E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\Utils.pdb
+E:\source\BlazorApp\BlazorApp\Server\obj\Debug\net6.0\BlazorApp.Server.MvcApplicationPartsAssemblyInfo.cs

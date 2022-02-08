@@ -12,22 +12,26 @@
     <div>
         <Table DataSource="data" ScrollY="600px" PageSize="10">
             <Selection />
-            <AntDesign.Column @bind-Field="@context.Name" Width="200" />
-            <AntDesign.Column @bind-Field="@context.Length" Width="100" />
-            <AntDesign.Column @bind-Field="@context.Root" Width="100"  />
+            <AntDesign.Column @bind-Field="@context.Name" Width="350" />
+            <AntDesign.Column @bind-Field="@context.LengthName" Width="180" />
+            <AntDesign.Column @bind-Field="@context.Root" Width="120"  />
             
             <ActionColumn Title="操作">
                 @if (@context.IsFile)
                 {
                     <Button Type="@ButtonType.Text">编辑</Button>
+                    <Popconfirm Placement="@Placement.TopLeft" Title=@(context.Name+"将被您删除")  OkText="删除" CancelText="取消" OnConfirm="()=>DelteFile(context)">
                     <Button Type="@ButtonType.Text">删除</Button>
+                    </Popconfirm>
                     <Button Type="@ButtonType.Text">重命名</Button>
                     <Button Type="@ButtonType.Text">压缩</Button>
                 }
                 else
                 {
-                    <Button Type="@ButtonType.Text" @onclick="()=>OpenFolder(context).GetAwaiter()">打开</Button>
+                    <Button Type="@ButtonType.Text" @onclick="()=>OpenFolder(context)">打开</Button>
+                    <Popconfirm Placement="@Placement.TopLeft" Title=@("文件夹："+context.Name+"将被您删除")  OkText="删除" CancelText="取消" OnConfirm="()=>DeleteDirectory(context)">
                     <Button Type="@ButtonType.Text">删除</Button>
+                    </Popconfirm>
                     <Button Type="@ButtonType.Text">重命名</Button>
                     <Button Type="@ButtonType.Text">压缩</Button>
                 }
@@ -61,8 +65,17 @@
     /// <returns></returns>
     public async Task DelteFile(FilesDto files)
     {
-        var data=await FileAdminApi.DeleteFile(files.Path);
-        
+        var data=await new FileAdminApi(Http).DeleteFile(files.Path);
+        await GetFileData();
+    }
+    /// <summary>
+    /// 删除文件夹
+    /// </summary>
+    /// <param name="files"></param>
+    /// <returns></returns>
+    public async Task DeleteDirectory(FilesDto files)
+    {
+        var data = await new FileAdminApi(Http).DeleteDirectory(files.Path);
     }
     /// <summary>
     /// 打开文件夹
@@ -80,12 +93,11 @@
     private async Task GetFileData()
     {
         data.Clear();
-        data.AddRange(await FileAdminApi.GetFileData(_path));
+        data.AddRange(await new FileAdminApi(Http).GetFileData(_path));
         StateHasChanged();
     }
     private async Task OnEnter(KeyboardEventArgs e)
     {
-        Console.WriteLine("Enter pressed");
         loading = true;
         await GetFileData();
         loading = false;

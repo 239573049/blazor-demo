@@ -1,6 +1,7 @@
 ﻿@using System.ComponentModel
 @using AntDesign.TableModels
-@using Entitys.File;
+@using BlazorApp.Client.Api
+@using Entitys.File
 @inject HttpClient Http
 <div>
     <div>
@@ -37,7 +38,7 @@
 @code {
     private List<FilesDto> data=new List<FilesDto>();
     @inject MessageService message;
-    private string? _path { get; set; } = @"E:\source\";
+    private string? _path { get; set; } = @"C:\";
     private bool loading;
 
     private void Handle(string value)
@@ -52,6 +53,16 @@
     private async Task OnSearch()
     {
         await GetFileData();
+    }
+    /// <summary>
+    /// 删除文件
+    /// </summary>
+    /// <param name="files"></param>
+    /// <returns></returns>
+    public async Task DelteFile(FilesDto files)
+    {
+        var data=await FileAdminApi.DeleteFile(files.Path);
+        
     }
     /// <summary>
     /// 打开文件夹
@@ -69,7 +80,7 @@
     private async Task GetFileData()
     {
         data.Clear();
-        data.AddRange((await Http.GetFromJsonAsync<List<FilesDto>>("/api/File/GetFileData?filePath="+_path))??new List<FilesDto>());
+        data.AddRange(await FileAdminApi.GetFileData(_path));
         StateHasChanged();
     }
     private async Task OnEnter(KeyboardEventArgs e)

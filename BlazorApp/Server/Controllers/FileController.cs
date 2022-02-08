@@ -35,6 +35,15 @@ namespace BlazorApp.Server.Controllers
         {
             return _fileService.GetFileData(filePath);
         }
-
+        /// <summary>
+        /// 删除文件
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        [HttpDelete]
+        public bool DeleteFile(string filePath)
+        {
+            return _fileService.DeleteFile(filePath);
+        }
     }
 }

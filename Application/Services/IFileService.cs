@@ -21,11 +21,24 @@ namespace Application.Services
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns></returns>
-        long? GetFileLength(string filePath); 
+        long? GetFileLength(string filePath);
+        /// <summary>
+        /// 删除文件
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        bool DeleteFile(string filePath);
 
     }
     public class FileService : IFileService
     {
+        public bool DeleteFile(string filePath)
+        {
+            if (!File.Exists(filePath))return true;
+            File.Delete(filePath);  
+            return true;
+        }
+
         public List<FilesDto> GetFileData(string filePath)
         {
             if (!Directory.Exists(filePath))

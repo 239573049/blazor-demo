@@ -9,11 +9,11 @@
                 Placeholder="请输入路径" OnChange="(e)=>Handle(e)" EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" />
     </div>
     <div>
-        <Table DataSource="data" ScrollY="600px" PageSize="150">
+        <Table DataSource="data" ScrollY="600px" PageSize="10">
             <Selection />
-            <AntDesign.Column @bind-Field="@context.Name" Width="150" />
-            <AntDesign.Column @bind-Field="@context.Length" Width="150" />
-            <AntDesign.Column @bind-Field="@context.Root" />
+            <AntDesign.Column @bind-Field="@context.Name" Width="200" />
+            <AntDesign.Column @bind-Field="@context.Length" Width="100" />
+            <AntDesign.Column @bind-Field="@context.Root" Width="100"  />
             
             <ActionColumn Title="操作">
                 @if (@context.IsFile)
@@ -25,7 +25,7 @@
                 }
                 else
                 {
-                    <Button Type="@ButtonType.Text">打开</Button>
+                    <Button Type="@ButtonType.Text" @onclick="()=>OpenFolder(context).GetAwaiter()">打开</Button>
                     <Button Type="@ButtonType.Text">删除</Button>
                     <Button Type="@ButtonType.Text">重命名</Button>
                     <Button Type="@ButtonType.Text">压缩</Button>
@@ -37,7 +37,7 @@
 @code {
     private List<FilesDto> data=new List<FilesDto>();
     @inject MessageService message;
-    private string? _path { get; set; } = @"E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0";
+    private string? _path { get; set; } = @"E:\source\";
     private bool loading;
 
     private void Handle(string value)
@@ -49,19 +49,34 @@
     {
         await GetFileData();
     }
-    public async Task OnSearch()
+    private async Task OnSearch()
     {
         await GetFileData();
     }
+    /// <summary>
+    /// 打开文件夹
+    /// </summary>
+    /// <param name="files"></param>
+    public async Task OpenFolder(FilesDto files)
+    {
+        _path = files.Path;
+        await GetFileData();
+    }
+    /// <summary>
+    /// 加载文件列表
+    /// </summary>
+    /// <returns></returns>
     private async Task GetFileData()
     {
-       var data=Http.GetFromJsonAsync<object>("/api/File/GetFileData?filePath="+_path);
+        data.Clear();
+        data.AddRange((await Http.GetFromJsonAsync<List<FilesDto>>("/api/File/GetFileData?filePath="+_path))??new List<FilesDto>());
+        StateHasChanged();
     }
     private async Task OnEnter(KeyboardEventArgs e)
     {
         Console.WriteLine("Enter pressed");
         loading = true;
-        await Task.Delay(3000);
+        await GetFileData();
         loading = false;
     }
 

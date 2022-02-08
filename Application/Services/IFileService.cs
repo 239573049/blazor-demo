@@ -28,18 +28,18 @@ namespace Application.Services
     {
         public List<FilesDto> GetFileData(string filePath)
         {
-            if (Directory.Exists(filePath))
+            if (!Directory.Exists(filePath))
                 return new List<FilesDto>();
             var files=new List<FilesDto>();
             var data=Directory.GetDirectories(filePath);
             foreach (var d in data)
             {
-                files.Add(new FilesDto { IsFile=false,Name=d});
+                files.Add(new FilesDto { IsFile=false,Path=d,Name=d.Replace(filePath,"")});
             }
             var getFileDatas=Directory.GetFiles(filePath);
             foreach (var d in getFileDatas)
             {
-                var file = new FilesDto {Name=d,IsFile=true };
+                var file = new FilesDto {Name=d.Replace(filePath,""),IsFile=true,Path=d};
                 file.Length=GetFileLength(d);
                 files.Add(file);
             }

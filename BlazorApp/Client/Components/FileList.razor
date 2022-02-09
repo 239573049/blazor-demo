@@ -1,14 +1,16 @@
 ﻿@using System.ComponentModel
 @using AntDesign.TableModels
 @using BlazorApp.Client.Api
+@using BlazorHttpUtil
 @using Entitys.File
+@using Entitys.Web
 @inject MessageService _message
-@inject HttpClient Http
+@inject FileAdminApi fileApi
 <div>
     <div>
 
         <Search Size="@InputSize.Large"
-                Placeholder="请输入路径" OnChange="(e)=>Handle(e)" EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" />
+                Placeholder="请输入路径" OnChange="(e)=>Handle(e)" EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" WrapperStyle="width:70%"/>
     </div>
     <div>
         <Table DataSource="data" ScrollY="600px" PageSize="10">
@@ -24,7 +26,7 @@
                     <Popconfirm Placement="@Placement.TopLeft" Title=@(context.Name+"将被您删除")  OkText="删除" CancelText="取消" OnConfirm="()=>DelteFile(context)">
                     <Button Type="@ButtonType.Text">删除</Button>
                     </Popconfirm>
-                    <Button Type="@ButtonType.Text">重命名</Button>
+                    <Button Type="@ButtonType.Text" @onclick="()=>UpdateNameDirectory(context)">重命名</Button>
                     <Button Type="@ButtonType.Text">压缩</Button>
                 }
                 else
@@ -40,13 +42,14 @@
         </Table>
     </div>
 </div>
-<Modal Title="重命名文件夹"
+<Modal Title="重命名文件或者文件夹"
        Visible="@_visibleRenameFolders"
        OnOk="@UpdateNameDirectoryOK"
        OnCancel="()=>{_updateFileData=null;
+                        _updateNewName=string.Empty;
                         _visibleRenameFolders=false;}"
        ConfirmLoading="@_confirmLoadingRenameFolders">
-       <Search Placeholder="请输入新文件夹名称" WrapperStyle="width: 200px;" @bind-Value="_updateNewName"/>
+       <Input Placeholder="请输入新文件夹名称" WrapperStyle="width: 200px;" @bind-Value="_updateNewName"/>
 </Modal>
 @code {
     private List<FilesDto> data=new List<FilesDto>();
@@ -86,12 +89,13 @@
     /// <returns></returns>
     public async Task DelteFile(FilesDto files)
     {
-        var data=await new FileAdminApi(Http).DeleteFile(files.Path);
+        var data=await fileApi.DeleteFile(files.Path);
         await GetFileData();
     }
 
     public void UpdateNameDirectory(FilesDto files)
     {
+        _updateNewName = files.Name;
         _visibleRenameFolders=true;
         _updateFileData = files;
     }
@@ -106,10 +110,27 @@
             await _message.Warning("新名称不能为空");
             return;
         }
-        await new FileAdminApi(Http).UpdateNameDirectory(_updateFileData.Path, _updateNewName);
-        await GetFileData();
-        _updateFileData=null;
-        _visibleRenameFolders=false;
+        ModelStateResult<bool>? result;
+        if (_updateFileData.IsFile)
+        {
+            result=await fileApi.UpdateNameFile(_updateFileData.Path, _updateNewName);
+        }
+        else
+        {
+            result=await fileApi.UpdateNameDirectory(_updateFileData.Path, _updateNewName);
+        }
+        if (result.StatusCode == 200)
+        {
+            await GetFileData();
+            _updateNewName = string.Empty;
+            _updateFileData=null;
+            _visibleRenameFolders=false;
+            await _message.Success("编辑成功");
+        }
+        else
+        {
+            await _message.Warning(result.Message);
+        }
     }
     /// <summary>
     /// 删除文件夹
@@ -118,7 +139,7 @@
     /// <returns></returns>
     public async Task DeleteDirectory(FilesDto files)
     {
-        var data = await new FileAdminApi(Http).DeleteDirectory(files.Path);
+        var data = await fileApi.DeleteDirectory(files.Path);
         await GetFileData();
     }
     /// <summary>
@@ -137,7 +158,8 @@
     private async Task GetFileData()
     {
         data.Clear();
-        data.AddRange(await new FileAdminApi(Http).GetFileData(_path));
+        var list=await fileApi.GetFileData(_path);
+        data.AddRange(list);
         StateHasChanged();
     }
     private async Task OnEnter(KeyboardEventArgs e)

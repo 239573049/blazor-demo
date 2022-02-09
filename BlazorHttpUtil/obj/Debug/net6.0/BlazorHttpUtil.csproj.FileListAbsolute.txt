@@ -1,0 +1,12 @@
+E:\source\BlazorApp\BlazorHttpUtil\bin\Debug\net6.0\BlazorHttpUtil.deps.json
+E:\source\BlazorApp\BlazorHttpUtil\bin\Debug\net6.0\BlazorHttpUtil.dll
+E:\source\BlazorApp\BlazorHttpUtil\bin\Debug\net6.0\ref\BlazorHttpUtil.dll
+E:\source\BlazorApp\BlazorHttpUtil\bin\Debug\net6.0\BlazorHttpUtil.pdb
+E:\source\BlazorApp\BlazorHttpUtil\obj\Debug\net6.0\BlazorHttpUtil.csproj.AssemblyReference.cache
+E:\source\BlazorApp\BlazorHttpUtil\obj\Debug\net6.0\BlazorHttpUtil.GeneratedMSBuildEditorConfig.editorconfig
+E:\source\BlazorApp\BlazorHttpUtil\obj\Debug\net6.0\BlazorHttpUtil.AssemblyInfoInputs.cache
+E:\source\BlazorApp\BlazorHttpUtil\obj\Debug\net6.0\BlazorHttpUtil.AssemblyInfo.cs
+E:\source\BlazorApp\BlazorHttpUtil\obj\Debug\net6.0\BlazorHttpUtil.csproj.CoreCompileInputs.cache
+E:\source\BlazorApp\BlazorHttpUtil\obj\Debug\net6.0\BlazorHttpUtil.dll
+E:\source\BlazorApp\BlazorHttpUtil\obj\Debug\net6.0\ref\BlazorHttpUtil.dll
+E:\source\BlazorApp\BlazorHttpUtil\obj\Debug\net6.0\BlazorHttpUtil.pdb

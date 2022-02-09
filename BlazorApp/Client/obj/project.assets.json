@@ -41,6 +41,18 @@
           "buildMultiTargeting/AntDesign.Charts.props": {}
         }
       },
+      "Autofac/6.3.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Diagnostics.DiagnosticSource": "4.7.1"
+        },
+        "compile": {
+          "lib/net5.0/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Autofac.dll": {}
+        }
+      },
       "Fable.AST/3.0.0": {
         "type": "package",
         "compile": {
@@ -1821,6 +1833,16 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "BlazorHttpUtil/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/BlazorHttpUtil.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BlazorHttpUtil.dll": {}
+        }
+      },
       "Entitys/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1870,6 +1892,18 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/AntDesign.Charts.props": {}
+        }
+      },
+      "Autofac/6.3.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Diagnostics.DiagnosticSource": "4.7.1"
+        },
+        "compile": {
+          "lib/net5.0/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Autofac.dll": {}
         }
       },
       "Fable.AST/3.0.0": {
@@ -3666,6 +3700,16 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "BlazorHttpUtil/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/BlazorHttpUtil.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BlazorHttpUtil.dll": {}
+        }
+      },
       "Entitys/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -4038,6 +4082,27 @@
         "lib/net5.0/AntDesign.Charts.dll",
         "lib/netstandard2.1/AntDesign.Charts.dll",
         "staticwebassets/ant-design-charts-blazor.js"
+      ]
+    },
+    "Autofac/6.3.0": {
+      "sha512": "gO4bli0N8tDnBHzbYktcnbXlmN6T+IT5W+FUGgCUaM6pwwHXIxOPoUGvfGum7sZpJJgfQNgjFFv80ZPuARgRdA==",
+      "type": "package",
+      "path": "autofac/6.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "autofac.6.3.0.nupkg.sha512",
+        "autofac.nuspec",
+        "icon.png",
+        "lib/net5.0/Autofac.dll",
+        "lib/net5.0/Autofac.pdb",
+        "lib/net5.0/Autofac.xml",
+        "lib/netstandard2.0/Autofac.dll",
+        "lib/netstandard2.0/Autofac.pdb",
+        "lib/netstandard2.0/Autofac.xml",
+        "lib/netstandard2.1/Autofac.dll",
+        "lib/netstandard2.1/Autofac.pdb",
+        "lib/netstandard2.1/Autofac.xml"
       ]
     },
     "Fable.AST/3.0.0": {
@@ -8759,6 +8824,11 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "BlazorHttpUtil/1.0.0": {
+      "type": "project",
+      "path": "../../BlazorHttpUtil/BlazorHttpUtil.csproj",
+      "msbuildProject": "../../BlazorHttpUtil/BlazorHttpUtil.csproj"
+    },
     "Entitys/1.0.0": {
       "type": "project",
       "path": "../../Entitys/Entitys.csproj",
@@ -8769,6 +8839,8 @@
     "net6.0": [
       "AntDesign >= 0.10.3.1",
       "AntDesign.Charts >= 0.2.2",
+      "Autofac >= 6.3.0",
+      "BlazorHttpUtil >= 1.0.0",
       "Entitys >= 1.0.0",
       "Fable.Builders.AntDesignCharts >= 3.152.0",
       "Microsoft.AspNetCore.Components.WebAssembly >= 6.0.1",
@@ -8807,6 +8879,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "E:\\source\\BlazorApp\\BlazorHttpUtil\\BlazorHttpUtil.csproj": {
+              "projectPath": "E:\\source\\BlazorApp\\BlazorHttpUtil\\BlazorHttpUtil.csproj"
+            },
             "E:\\source\\BlazorApp\\Entitys\\Entitys.csproj": {
               "projectPath": "E:\\source\\BlazorApp\\Entitys\\Entitys.csproj"
             }
@@ -8830,6 +8905,10 @@
           "AntDesign.Charts": {
             "target": "Package",
             "version": "[0.2.2, )"
+          },
+          "Autofac": {
+            "target": "Package",
+            "version": "[6.3.0, )"
           },
           "Fable.Builders.AntDesignCharts": {
             "target": "Package",

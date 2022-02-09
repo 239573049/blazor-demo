@@ -9,6 +9,7 @@
     "assembly": {
       "AntDesign.dll": "sha256-7gWXgOLG8A9tXBRmAR+3fSIL1VKNlOg46cX3oSjW9gs=",
       "AntDesign.Charts.dll": "sha256-tp5tbXL+uvhx746IuvyQ\/IsptnDwgcNtJsmJhB4+Rls=",
+      "Autofac.dll": "sha256-5KN8PNuBcD39pzj6IenkFZnPMVw6zG5ibRbGwjS9jyw=",
       "Fable.AST.dll": "sha256-NMpfdh4E+AopHWZS2E0Gh619lOfbZbNcwtTSfH0Qeig=",
       "Browser.Blob.dll": "sha256-fco63qB797wLpF1xn7nHAd+SDnq8TaohUcAVdiZNkiY=",
       "Browser.Dom.dll": "sha256-SybfO+o+mRQAE+\/SqMDJ97jalrU7PcV4rNZOHi+qMZI=",
@@ -212,15 +213,17 @@
       "mscorlib.dll": "sha256-+5VU+MYaTQMTlRe9QKobEjWZWv6I9teAGdNndWSBqWE=",
       "netstandard.dll": "sha256-E5RFhGIaDH5QM6BEbFUuHU8U9wP6N6jbo5MCttzLOCM=",
       "System.Private.CoreLib.dll": "sha256-9NtEbYixyog7vUmeYXyyqzfBXUYl8wxoVQ26Ji7sNRg=",
+      "BlazorHttpUtil.dll": "sha256-h8pT5RAmjTjf4H4mQckTUEpBBEW7KKf0MDjUtFt6MCg=",
       "Entitys.dll": "sha256-OJZmEfSzdhFgOjEChq9eja+iVZa3WRLaJlJ+cRQGcd0=",
-      "BlazorApp.Client.dll": "sha256-MeG0Uy10ba\/Mim+7d0\/8Cy54JAEU6wTvOyuvfuhHdt4="
+      "BlazorApp.Client.dll": "sha256-dAQ7Ra7gDCFe7OENEro0pwS+EeBtxCcRS9R2BqmAV9w="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
+      "BlazorHttpUtil.pdb": "sha256-AHr95hj2h2\/djzFcnlUWmpYatixynbJLRfxS8\/46pn8=",
       "Entitys.pdb": "sha256-+mGUuEfiWFCSNGGY690CE2Mk6Ag6F6rRRj0\/a\/\/\/lPI=",
-      "BlazorApp.Client.pdb": "sha256-UAVbco0Sg6APesYMv8fEp6bMEwPkoQ4sOfaUWhyx\/mU="
+      "BlazorApp.Client.pdb": "sha256-nnPiwjTVlT94bzJDbsPvbFTQETHTuXcrV48USa4OAbw="
     },
     "runtime": {
       "dotnet.6.0.1.v4uzohsjnn.js": "sha256-awQsJ\/WxYhouHPuE+i3eJqjA4XClQlr2rD6nKvW80ww=",

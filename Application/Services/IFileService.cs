@@ -42,6 +42,13 @@ namespace Application.Services
         /// <param name="name"></param>
         /// <returns></returns>
         bool UpdateNameDirectory(string directoryPath,string name);
+        /// <summary>
+        /// 重命名文件
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        bool UpdateNameFile(string filePath,string name);
     }
     public class FileService : IFileService
     {
@@ -111,6 +118,7 @@ namespace Application.Services
         public bool UpdateNameDirectory(string directoryPath, string name)
         {
             var path = directoryPath.Split("\\");
+            if (path[^1] == name) return true;
             if(path.Length  >1)
                 path = path.Take(path.Length - 1).ToArray();
             if (!Directory.Exists(directoryPath)) throw new BusinessLogicException("文件夹不存在");
@@ -124,7 +132,34 @@ namespace Application.Services
             {
                 throw new BusinessLogicException("访问错误");
             }
-            catch(Exception)
+            catch (Exception)
+            {
+                throw new BusinessLogicException("重命名错误");
+            }
+            return true;
+        }
+
+        public bool UpdateNameFile(string filePath, string name)
+        {
+            var path=filePath.Split("\\");
+            if (path[^1] == name) return true;
+            if (path.Length > 1)
+                path = path.Take(path.Length - 1).ToArray();
+            if (!File.Exists(filePath)) throw new BusinessLogicException("文件不存在");
+            name=string.Join("\\", path)+"\\" + name;
+            if (Directory.Exists(name)) throw new BusinessLogicException("已经存在相同文件");
+            try
+            {
+                File.Move(filePath, name);
+            }
+            catch (FileNotFoundException)
+            {
+                throw new BusinessLogicException("原地址不存在");
+            }catch (NotSupportedException)
+            {
+                throw new BusinessLogicException("路径不合法");
+            }
+            catch (Exception)
             {
                 throw new BusinessLogicException("重命名错误");
             }

@@ -1955,6 +1955,8 @@
         "dependencies": {
           "AntDesign": "0.10.3.1",
           "AntDesign.Charts": "0.2.2",
+          "Autofac": "6.3.0",
+          "BlazorHttpUtil": "1.0.0",
           "Entitys": "1.0.0",
           "Fable.Builders.AntDesignCharts": "3.152.0",
           "Microsoft.AspNetCore.Components.WebAssembly": "6.0.1"
@@ -1964,6 +1966,16 @@
         },
         "runtime": {
           "bin/placeholder/BlazorApp.Client.dll": {}
+        }
+      },
+      "BlazorHttpUtil/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/BlazorHttpUtil.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BlazorHttpUtil.dll": {}
         }
       },
       "Entitys/1.0.0": {
@@ -6713,6 +6725,11 @@
       "type": "project",
       "path": "../Client/BlazorApp.Client.csproj",
       "msbuildProject": "../Client/BlazorApp.Client.csproj"
+    },
+    "BlazorHttpUtil/1.0.0": {
+      "type": "project",
+      "path": "../../BlazorHttpUtil/BlazorHttpUtil.csproj",
+      "msbuildProject": "../../BlazorHttpUtil/BlazorHttpUtil.csproj"
     },
     "Entitys/1.0.0": {
       "type": "project",

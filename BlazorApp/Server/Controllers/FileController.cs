@@ -66,5 +66,16 @@ namespace BlazorApp.Server.Controllers
         {
             return _fileService.UpdateNameDirectory(directoryPath, name);
         }
+        /// <summary>
+        /// 编辑文件名称
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        [HttpPut]
+        public bool UpdateNameFile(string filePath, string name)
+        {
+            return _fileService.UpdateNameFile(filePath,name);
+        }
     }
 }

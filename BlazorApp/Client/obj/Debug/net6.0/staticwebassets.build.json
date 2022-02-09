@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LPe0NEK5c9R6tWDhZce3lA0ZimrqB36JfQPUwBwLWEI=",
+  "Hash": "hOTnHtTYd5LwNFCRllhOwXtVZL7GG6qjquswsTm40KI=",
   "Source": "BlazorApp.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -5576,6 +5576,23 @@
       "OriginalItemSpec": "C:\\Users\\Administrator\\.nuget\\packages\\antdesign\\0.10.3.1\\lib\\net5.0\\AntDesign.dll"
     },
     {
+      "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Autofac.dll",
+      "SourceId": "BlazorApp.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Autofac.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Administrator\\.nuget\\packages\\autofac\\6.3.0\\lib\\net5.0\\Autofac.dll"
+    },
+    {
       "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\blazor.boot.json",
       "SourceId": "BlazorApp.Client",
       "SourceType": "Computed",
@@ -5642,6 +5659,40 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net6.0\\BlazorApp.Client.pdb"
+    },
+    {
+      "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\BlazorHttpUtil.dll",
+      "SourceId": "BlazorApp.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/BlazorHttpUtil.dll",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "E:\\source\\BlazorApp\\BlazorHttpUtil\\bin\\Debug\\net6.0\\BlazorHttpUtil.dll"
+    },
+    {
+      "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\BlazorHttpUtil.pdb",
+      "SourceId": "BlazorApp.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/BlazorHttpUtil.pdb",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "BlazorWebAssemblyResource",
+      "AssetTraitValue": "symbol",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "E:\\source\\BlazorApp\\BlazorHttpUtil\\bin\\Debug\\net6.0\\BlazorHttpUtil.pdb"
     },
     {
       "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Browser.Blob.dll",
@@ -9537,6 +9588,23 @@
       "OriginalItemSpec": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.IO.FileSystem.Watcher.dll"
     },
     {
+      "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\obj\\Debug\\net6.0\\build-gz\\+oKSX5r0.gz",
+      "SourceId": "BlazorApp.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/BlazorHttpUtil.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\BlazorHttpUtil.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\BlazorHttpUtil.dll"
+    },
+    {
       "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\obj\\Debug\\net6.0\\build-gz\\+sAPjFk6.gz",
       "SourceId": "BlazorApp.Client",
       "SourceType": "Computed",
@@ -13124,6 +13192,23 @@
       "OriginalItemSpec": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Reflection.Metadata.dll"
     },
     {
+      "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\obj\\Debug\\net6.0\\build-gz\\y7gMlyx+.gz",
+      "SourceId": "BlazorApp.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/BlazorHttpUtil.pdb.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\BlazorHttpUtil.pdb",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\BlazorHttpUtil.pdb"
+    },
+    {
       "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\obj\\Debug\\net6.0\\build-gz\\Y7qfPoKB.gz",
       "SourceId": "BlazorApp.Client",
       "SourceType": "Computed",
@@ -13139,6 +13224,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Net.Http.dll"
+    },
+    {
+      "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\obj\\Debug\\net6.0\\build-gz\\Yc8qGmli.gz",
+      "SourceId": "BlazorApp.Client",
+      "SourceType": "Computed",
+      "ContentRoot": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/Autofac.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Autofac.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Autofac.dll"
     },
     {
       "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\obj\\Debug\\net6.0\\build-gz\\yd1ObCRa.gz",

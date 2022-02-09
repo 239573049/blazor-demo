@@ -941,3 +941,15 @@ E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\Entitys.pdb
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\K7DxUFCI.gz
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\voZ+ov8E.gz
 E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\BlazorApp.Client.csproj.AssemblyReference.cache
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\BlazorHttpUtil.dll
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\BlazorHttpUtil.pdb
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\BlazorHttpUtil.dll.gz
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\BlazorHttpUtil.pdb.gz
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\BlazorHttpUtil.dll
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\BlazorHttpUtil.pdb
+E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\+oKSX5r0.gz
+E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\y7gMlyx+.gz
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\Autofac.dll
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\Autofac.dll.gz
+E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\Autofac.dll
+E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\Yc8qGmli.gz

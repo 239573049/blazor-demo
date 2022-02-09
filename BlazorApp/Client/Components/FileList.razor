@@ -2,6 +2,7 @@
 @using AntDesign.TableModels
 @using BlazorApp.Client.Api
 @using Entitys.File
+@inject MessageService _message
 @inject HttpClient Http
 <div>
     <div>
@@ -32,28 +33,48 @@
                     <Popconfirm Placement="@Placement.TopLeft" Title=@("文件夹："+context.Name+"将被您删除")  OkText="删除" CancelText="取消" OnConfirm="()=>DeleteDirectory(context)">
                     <Button Type="@ButtonType.Text">删除</Button>
                     </Popconfirm>
-                    <Button Type="@ButtonType.Text">重命名</Button>
+                    <Button Type="@ButtonType.Text" @onclick="()=>UpdateNameDirectory(context)">重命名</Button>
                     <Button Type="@ButtonType.Text">压缩</Button>
                 }
             </ActionColumn>
         </Table>
     </div>
 </div>
+<Modal Title="重命名文件夹"
+       Visible="@_visibleRenameFolders"
+       OnOk="@UpdateNameDirectoryOK"
+       OnCancel="()=>{_updateFileData=null;
+                        _visibleRenameFolders=false;}"
+       ConfirmLoading="@_confirmLoadingRenameFolders">
+       <Search Placeholder="请输入新文件夹名称" WrapperStyle="width: 200px;" @bind-Value="_updateNewName"/>
+</Modal>
 @code {
     private List<FilesDto> data=new List<FilesDto>();
     @inject MessageService message;
     private string? _path { get; set; } = @"C:\";
     private bool loading;
-
+    private bool _visibleRenameFolders=false;
+    private bool _confirmLoadingRenameFolders=false;
+    /// <summary>
+    /// 编辑东西临时
+    /// </summary>
+    private FilesDto? _updateFileData = null;
+    private string? _updateNewName;
     private void Handle(string value)
     {
         Console.WriteLine(value);
     }
-    
+    /// <summary>
+    /// 初始化
+    /// </summary> <summary>
     protected override async void OnInitialized()
     {
         await GetFileData();
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     private async Task OnSearch()
     {
         await GetFileData();
@@ -68,6 +89,28 @@
         var data=await new FileAdminApi(Http).DeleteFile(files.Path);
         await GetFileData();
     }
+
+    public void UpdateNameDirectory(FilesDto files)
+    {
+        _visibleRenameFolders=true;
+        _updateFileData = files;
+    }
+    /// <summary>
+    /// 编辑文件夹名称
+    /// </summary>
+    /// <returns></returns>
+    public async Task UpdateNameDirectoryOK()
+    {
+        if (string.IsNullOrEmpty(_updateNewName))
+        {
+            await _message.Warning("新名称不能为空");
+            return;
+        }
+        await new FileAdminApi(Http).UpdateNameDirectory(_updateFileData.Path, _updateNewName);
+        await GetFileData();
+        _updateFileData=null;
+        _visibleRenameFolders=false;
+    }
     /// <summary>
     /// 删除文件夹
     /// </summary>
@@ -76,6 +119,7 @@
     public async Task DeleteDirectory(FilesDto files)
     {
         var data = await new FileAdminApi(Http).DeleteDirectory(files.Path);
+        await GetFileData();
     }
     /// <summary>
     /// 打开文件夹

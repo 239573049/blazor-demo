@@ -35,6 +35,13 @@ namespace Application.Services
         /// <param name="directoryPath"></param>
         /// <returns></returns>
         bool DeleteDirectory(string directoryPath);
+        /// <summary>
+        /// 重命名文件夹
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        bool UpdateNameDirectory(string directoryPath,string name);
     }
     public class FileService : IFileService
     {
@@ -100,6 +107,28 @@ namespace Application.Services
         {
             return File.Exists(fille);
         }
-       
+
+        public bool UpdateNameDirectory(string directoryPath, string name)
+        {
+            var path = directoryPath.Split("\\");
+            if(path.Length  >1)
+                path = path.Take(path.Length - 1).ToArray();
+            if (!Directory.Exists(directoryPath)) throw new BusinessLogicException("文件夹不存在");
+            name = string.Join("\\", path) + "\\" + name;
+            if (Directory.Exists(name)) throw new BusinessLogicException("已经存在相同文件夹名称");
+            try
+                {
+                Directory.Move(directoryPath, name);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                throw new BusinessLogicException("访问错误");
+            }
+            catch(Exception)
+            {
+                throw new BusinessLogicException("重命名错误");
+            }
+            return true;
+        }
     }
 }

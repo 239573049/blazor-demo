@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "B5eiHkReqgXxWsvdGSsvtjy6paRWL4uhV6jHsGqT7vvJiUSfKqMC2OPTj2iYNbY6a+sXBDMBC7XSx6LkzrD5HQ==",
+  "dgSpecHash": "+/HCctgY/bbmU5hpjIHJ3G0rDIZLM/S5XfUSmOeg8KQSb/ZDbsHeudXXYT1UdjenL1Patp+rpnvWDddZJ8oSmg==",
   "success": true,
   "projectFilePath": "E:\\source\\BlazorApp\\BlazorApp\\Server\\BlazorApp.Server.csproj",
   "expectedPackageFiles": [
@@ -129,7 +129,8 @@
     "C:\\Users\\Administrator\\.nuget\\packages\\system.threading.tasks.extensions\\4.3.0\\system.threading.tasks.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\Administrator\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\Administrator\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\xhblazorhelper\\1.0.5\\xhblazorhelper.1.0.5.nupkg.sha512"
   ],
   "logs": []
 }

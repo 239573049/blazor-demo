@@ -1,7 +1,6 @@
-using Autofac;
 using BlazorApp.Client;
 using BlazorApp.Client.Api;
-using BlazorHttpUtil;
+using BlazorHelper;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
@@ -9,9 +8,8 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddAntDesign();
-var httpClient = new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) };
-builder.Services.AddSingleton(sp => httpClient);
-builder.Services.AddSingleton<IHttpHelp,HttpHelp>();
-builder.Services.AddSingleton(typeof(FileAdminApi));
+builder.Services.AddHttpClientHelper(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+var basePath = AppDomain.CurrentDomain.BaseDirectory;
+builder.Services.AddInjectSingleton(Path.Combine(basePath, "BlazorApp.Client.dll"), a => a.Name.EndsWith("Api"));
 Request.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
 await builder.Build().RunAsync();

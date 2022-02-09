@@ -1,13 +1,12 @@
-﻿using BlazorHttpUtil;
+﻿using BlazorHelper;
 using Entitys.File;
 using Entitys.Web;
-
 namespace BlazorApp.Client.Api;
 public class FileAdminApi
 {
-    private readonly IHttpHelp _httpHelp;
+    private readonly HttpHelper _httpHelp;
 
-    public FileAdminApi(IHttpHelp httpHelp)
+    public FileAdminApi(HttpHelper httpHelp)
     {
         _httpHelp = httpHelp;
     }

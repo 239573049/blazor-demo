@@ -1935,6 +1935,18 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "XHBlazorHelper/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/BlazorHelper.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/BlazorHelper.dll": {}
+        }
+      },
       "Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1955,27 +1967,16 @@
         "dependencies": {
           "AntDesign": "0.10.3.1",
           "AntDesign.Charts": "0.2.2",
-          "Autofac": "6.3.0",
-          "BlazorHttpUtil": "1.0.0",
           "Entitys": "1.0.0",
           "Fable.Builders.AntDesignCharts": "3.152.0",
-          "Microsoft.AspNetCore.Components.WebAssembly": "6.0.1"
+          "Microsoft.AspNetCore.Components.WebAssembly": "6.0.1",
+          "XHBlazorHelper": "1.0.5"
         },
         "compile": {
           "bin/placeholder/BlazorApp.Client.dll": {}
         },
         "runtime": {
           "bin/placeholder/BlazorApp.Client.dll": {}
-        }
-      },
-      "BlazorHttpUtil/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/BlazorHttpUtil.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/BlazorHttpUtil.dll": {}
         }
       },
       "Entitys/1.0.0": {
@@ -6716,6 +6717,20 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "XHBlazorHelper/1.0.5": {
+      "sha512": "Tdgl+m+b53jGaixfM4ktuv7VtNQG71QDyK4843+Vo2HVkUhbB1FE1kkWZM0oBgTWiPsX+3E5Mvd1B3aAzm5nHA==",
+      "type": "package",
+      "path": "xhblazorhelper/1.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/BlazorHelper.dll",
+        "lib/net6.0/BlazorHelper.xml",
+        "xhblazorhelper.1.0.5.nupkg.sha512",
+        "xhblazorhelper.nuspec",
+        "下载.jpg"
+      ]
+    },
     "Application/1.0.0": {
       "type": "project",
       "path": "../../Application/Application.csproj",
@@ -6725,11 +6740,6 @@
       "type": "project",
       "path": "../Client/BlazorApp.Client.csproj",
       "msbuildProject": "../Client/BlazorApp.Client.csproj"
-    },
-    "BlazorHttpUtil/1.0.0": {
-      "type": "project",
-      "path": "../../BlazorHttpUtil/BlazorHttpUtil.csproj",
-      "msbuildProject": "../../BlazorHttpUtil/BlazorHttpUtil.csproj"
     },
     "Entitys/1.0.0": {
       "type": "project",

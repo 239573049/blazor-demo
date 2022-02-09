@@ -85,5 +85,4 @@ E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swa
 E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\Utils.dll
 E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\Utils.pdb
 E:\source\BlazorApp\BlazorApp\Server\obj\Debug\net6.0\BlazorApp.Server.MvcApplicationPartsAssemblyInfo.cs
-E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\BlazorHttpUtil.dll
-E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\BlazorHttpUtil.pdb
+E:\source\BlazorApp\BlazorApp\Server\bin\Debug\net6.0\BlazorHelper.dll

@@ -24,15 +24,4 @@ public class FormatTemplate
             return new string[] { ".txt", ".log", ".config", ".json", ".cs", ".sh", ".bat", ".vbs", ".ini", ".gitconfig", ".xml", ".html", ".css", ".js", ".md" };
         }
     }
-    /// <summary>
-    /// 获取所有可编辑类型
-    /// </summary>
-    public static string[] EditType
-    {
-        get {
-            var data = ImageType.ToList();
-            data.AddRange(TextType.ToList());
-            return data.ToArray();
-        }
-    }
 }

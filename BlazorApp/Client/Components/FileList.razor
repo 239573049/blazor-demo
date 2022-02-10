@@ -116,7 +116,7 @@
     private async Task UpdateFile(FilesDto files)
     {
         var name = files.Name;
-        if (!FormatTemplate.EditType.Any(a => name!.EndsWith(a)))
+        if (!FormatTemplate.TextType.Any(a => name!.EndsWith(a)))
         {
             await _message.Warning("文件不能被编辑");
             return;

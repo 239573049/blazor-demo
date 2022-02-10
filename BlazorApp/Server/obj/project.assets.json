@@ -1935,7 +1935,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "XHBlazorHelper/1.0.5": {
+      "XHBlazorHelper/1.1.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
@@ -1970,7 +1970,7 @@
           "Entitys": "1.0.0",
           "Fable.Builders.AntDesignCharts": "3.152.0",
           "Microsoft.AspNetCore.Components.WebAssembly": "6.0.1",
-          "XHBlazorHelper": "1.0.5"
+          "XHBlazorHelper": "1.1.0"
         },
         "compile": {
           "bin/placeholder/BlazorApp.Client.dll": {}
@@ -6717,16 +6717,16 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "XHBlazorHelper/1.0.5": {
-      "sha512": "Tdgl+m+b53jGaixfM4ktuv7VtNQG71QDyK4843+Vo2HVkUhbB1FE1kkWZM0oBgTWiPsX+3E5Mvd1B3aAzm5nHA==",
+    "XHBlazorHelper/1.1.0": {
+      "sha512": "ss8cywxAI/mSqoKRVGDEY4VLBCQN+AGrD+sZQL6bfJdCdcuBms3EBKk18KGqd7IA2PKzB7ucU9oG/39P68j73A==",
       "type": "package",
-      "path": "xhblazorhelper/1.0.5",
+      "path": "xhblazorhelper/1.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net6.0/BlazorHelper.dll",
         "lib/net6.0/BlazorHelper.xml",
-        "xhblazorhelper.1.0.5.nupkg.sha512",
+        "xhblazorhelper.1.1.0.nupkg.sha512",
         "xhblazorhelper.nuspec",
         "下载.jpg"
       ]

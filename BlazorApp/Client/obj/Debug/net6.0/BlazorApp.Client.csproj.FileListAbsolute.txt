@@ -944,4 +944,4 @@ E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\BlazorApp.Client.csproj.As
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\BlazorHelper.dll
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\wwwroot\_framework\BlazorHelper.dll.gz
 E:\source\BlazorApp\BlazorApp\Client\bin\Debug\net6.0\BlazorHelper.dll
-E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\bhQ5B7hS.gz
+E:\source\BlazorApp\BlazorApp\Client\obj\Debug\net6.0\build-gz\VzQ++2x9.gz

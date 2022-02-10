@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xrDAX/UrUDOr+mz2+ZRSQE1q99g31CoVZReYbKfvj8JKI8uTofThPOdMgV8rXp4xlaboWApYZ9zcmC3fWNg+Mw==",
+  "dgSpecHash": "fXYDtW0EchbnFtfUYMs29FWVyCIByz5l12KDdkBUYsMlg8PP6oKHV+W3zbGZ4FlnKE8ZU8WErtljXOxdgYKVWQ==",
   "success": true,
   "projectFilePath": "E:\\source\\BlazorApp\\BlazorApp\\Client\\BlazorApp.Client.csproj",
   "expectedPackageFiles": [
@@ -139,7 +139,7 @@
     "C:\\Users\\Administrator\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Administrator\\.nuget\\packages\\xhblazorhelper\\1.0.5\\xhblazorhelper.1.0.5.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\xhblazorhelper\\1.1.0\\xhblazorhelper.1.1.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.1\\microsoft.netcore.app.runtime.mono.browser-wasm.6.0.1.nupkg.sha512"
   ],
   "logs": []

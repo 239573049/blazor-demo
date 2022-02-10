@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "C5fim2/ee6ebySBh0KQMBkWPF0BEM3gIKTPCutmKp5A=",
+  "Hash": "NzJmc3vE2t1AyUkMfb3ZEhH6D95KK6kbjt4+LTM9Qmk=",
   "Source": "BlazorApp.Server",
   "BasePath": "_content/BlazorApp.Server",
   "Mode": "Default",
@@ -5670,7 +5670,7 @@
       "AssetTraitValue": "runtime",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Administrator\\.nuget\\packages\\xhblazorhelper\\1.0.5\\lib\\net6.0\\BlazorHelper.dll"
+      "OriginalItemSpec": "C:\\Users\\Administrator\\.nuget\\packages\\xhblazorhelper\\1.1.0\\lib\\net6.0\\BlazorHelper.dll"
     },
     {
       "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Browser.Blob.dll",
@@ -10331,23 +10331,6 @@
       "OriginalItemSpec": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\System.Resources.ResourceManager.dll"
     },
     {
-      "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\obj\\Debug\\net6.0\\build-gz\\bhQ5B7hS.gz",
-      "SourceId": "BlazorApp.Client",
-      "SourceType": "Project",
-      "ContentRoot": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/BlazorHelper.dll.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "RelatedAsset": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\BlazorHelper.dll",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\BlazorHelper.dll"
-    },
-    {
       "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\obj\\Debug\\net6.0\\build-gz\\BR1XWZDe.gz",
       "SourceId": "BlazorApp.Client",
       "SourceType": "Project",
@@ -12981,6 +12964,23 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\Fable.AST.dll"
+    },
+    {
+      "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\obj\\Debug\\net6.0\\build-gz\\VzQ++2x9.gz",
+      "SourceId": "BlazorApp.Client",
+      "SourceType": "Project",
+      "ContentRoot": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/BlazorHelper.dll.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "RelatedAsset": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\BlazorHelper.dll",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "E:\\source\\BlazorApp\\BlazorApp\\Client\\bin\\Debug\\net6.0\\wwwroot\\_framework\\BlazorHelper.dll"
     },
     {
       "Identity": "E:\\source\\BlazorApp\\BlazorApp\\Client\\obj\\Debug\\net6.0\\build-gz\\vzv5RqXb.gz",

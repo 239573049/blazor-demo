@@ -77,5 +77,26 @@ namespace BlazorApp.Server.Controllers
         {
             return _fileService.UpdateNameFile(filePath,name);
         }
+        /// <summary>
+        /// 获取文件内容
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public string? GetFileContent(string filePath)
+        {
+            return  _fileService.GetFileContent(filePath);
+        }
+        /// <summary>
+        /// 编辑文件内容
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public bool UpdateFileContent(string filePath,[FromBody]string content)
+        {
+            return _fileService.UpdateFileContent(filePath, content);
+        }
     }
 }

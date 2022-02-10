@@ -3,27 +3,28 @@
 @using BlazorApp.Client.Api
 @using Entitys.File
 @using Entitys.Web
+@using Utils;
 @inject MessageService _message
 @inject FileAdminApi fileApi
 <div>
     <div>
 
         <Search Size="@InputSize.Large"
-                Placeholder="请输入路径" OnChange="(e)=>Handle(e)" EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" WrapperStyle="width:70%"/>
+                Placeholder="请输入路径" OnChange="(e)=>Handle(e)" EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" WrapperStyle="width:70%" />
     </div>
     <div>
         <Table DataSource="data" ScrollY="600px" PageSize="10">
             <Selection />
             <AntDesign.Column @bind-Field="@context.Name" Width="350" />
             <AntDesign.Column @bind-Field="@context.LengthName" Width="180" />
-            <AntDesign.Column @bind-Field="@context.Root" Width="120"  />
-            
+            <AntDesign.Column @bind-Field="@context.Root" Width="120" />
+
             <ActionColumn Title="操作">
                 @if (@context.IsFile)
                 {
-                    <Button Type="@ButtonType.Text">编辑</Button>
-                    <Popconfirm Placement="@Placement.TopLeft" Title=@(context.Name+"将被您删除")  OkText="删除" CancelText="取消" OnConfirm="()=>DelteFile(context)">
-                    <Button Type="@ButtonType.Text">删除</Button>
+                    <Button Type="@ButtonType.Text" @onclick="()=>UpdateFile(context)">编辑</Button>
+                    <Popconfirm Placement="@Placement.TopLeft" Title=@(context.Name+"将被您删除") OkText="删除" CancelText="取消" OnConfirm="()=>DelteFile(context)">
+                        <Button Type="@ButtonType.Text">删除</Button>
                     </Popconfirm>
                     <Button Type="@ButtonType.Text" @onclick="()=>UpdateNameDirectory(context)">重命名</Button>
                     <Button Type="@ButtonType.Text">压缩</Button>
@@ -31,8 +32,8 @@
                 else
                 {
                     <Button Type="@ButtonType.Text" @onclick="()=>OpenFolder(context)">打开</Button>
-                    <Popconfirm Placement="@Placement.TopLeft" Title=@("文件夹："+context.Name+"将被您删除")  OkText="删除" CancelText="取消" OnConfirm="()=>DeleteDirectory(context)">
-                    <Button Type="@ButtonType.Text">删除</Button>
+                    <Popconfirm Placement="@Placement.TopLeft" Title=@("文件夹："+context.Name+"将被您删除") OkText="删除" CancelText="取消" OnConfirm="()=>DeleteDirectory(context)">
+                        <Button Type="@ButtonType.Text">删除</Button>
                     </Popconfirm>
                     <Button Type="@ButtonType.Text" @onclick="()=>UpdateNameDirectory(context)">重命名</Button>
                     <Button Type="@ButtonType.Text">压缩</Button>
@@ -41,26 +42,43 @@
         </Table>
     </div>
 </div>
+@*重命名弹窗*@
 <Modal Title="重命名文件或者文件夹"
        Visible="@_visibleRenameFolders"
        OnOk="@UpdateNameDirectoryOK"
        OnCancel="()=>{_updateFileData=null;
                         _updateNewName=string.Empty;
-                        _visibleRenameFolders=false;}"
-       ConfirmLoading="@_confirmLoadingRenameFolders">
-       <Input Placeholder="请输入新文件夹名称" WrapperStyle="width: 200px;" @bind-Value="_updateNewName"/>
+                        _visibleRenameFolders=false;}">
+    <Input Placeholder="请输入新文件夹名称" WrapperStyle="width: 200px;" @bind-Value="_updateNewName" />
 </Modal>
+@*编辑文件*@
+<Modal Title="重命名文件或者文件夹"
+       Visible="@_visibleUpdateFile"
+       OnOk="@UpdateFileSave"
+       OnCancel="()=>{_updateFileData=null;_updateFileContent=string.Empty;_visibleUpdateFile=false;}">
+    <TextArea Rows="15" @bind-Value="_updateFileContent" />
+</Modal>
+
 @code {
-    private List<FilesDto> data=new List<FilesDto>();
-    @inject MessageService message;
-    private string? _path { get; set; } = @"C:\";
-    private bool loading;
-    private bool _visibleRenameFolders=false;
-    private bool _confirmLoadingRenameFolders=false;
+    private List<FilesDto> data = new List<FilesDto>();
+    private string? _path { get; set; } = @"";
+    /// <summary>
+    /// 重命名文件或者文件夹弹窗
+    /// </summary>
+    private bool _visibleRenameFolders = false;
+    /// <summary>
+    /// 编辑文件
+    /// </summary>
+    private bool _visibleUpdateFile = false;
+    /// <summary>
+    /// 编辑文件内容;
+    /// </summary>
+    private string? _updateFileContent;
     /// <summary>
     /// 编辑东西临时
     /// </summary>
     private FilesDto? _updateFileData = null;
+
     private string? _updateNewName;
     private void Handle(string value)
     {
@@ -74,7 +92,7 @@
         await GetFileData();
     }
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <returns></returns>
     private async Task OnSearch()
@@ -88,14 +106,47 @@
     /// <returns></returns>
     public async Task DelteFile(FilesDto files)
     {
-        var data=await fileApi.DeleteFile(files.Path);
+        var data = await fileApi.DeleteFile(files.Path);
         await GetFileData();
     }
-
+    /// <summary>
+    /// 编辑文件
+    /// </summary>
+    /// <param name="files"></param>
+    private async Task UpdateFile(FilesDto files)
+    {
+        var name = files.Name;
+        if (!FormatTemplate.EditType.Any(a => name!.EndsWith(a)))
+        {
+            await _message.Warning("文件不能被编辑");
+            return;
+        }
+        var content = await fileApi.GetFileContent(files.Path!);
+        if (string.IsNullOrEmpty(content)) return;
+        _visibleUpdateFile = true;
+        _updateFileData = files;
+        _updateFileContent = content;
+    }
+    /// <summary>
+    /// 保存文件
+    /// </summary>
+    /// <returns></returns>
+    private async Task UpdateFileSave()
+    {
+        await fileApi.UpdateFileContent(_updateFileData.Path!, _updateFileContent!);
+        _updateFileData = null;
+        _updateFileContent = string.Empty;
+        _visibleUpdateFile = false;
+        await GetFileData();
+    }
+    /// <summary>
+    ///
+    /// </summary>
+    /// <param name="files"></param>
     public void UpdateNameDirectory(FilesDto files)
     {
         _updateNewName = files.Name;
-        _visibleRenameFolders=true;
+        _visibleRenameFolders = true;
         _updateFileData = files;
     }
     /// <summary>
@@ -112,18 +163,18 @@
         ModelStateResult<bool>? result;
         if (_updateFileData.IsFile)
         {
-            result=await fileApi.UpdateNameFile(_updateFileData.Path, _updateNewName);
+            result = await fileApi.UpdateNameFile(_updateFileData.Path, _updateNewName);
         }
         else
         {
-            result=await fileApi.UpdateNameDirectory(_updateFileData.Path, _updateNewName);
+            result = await fileApi.UpdateNameDirectory(_updateFileData.Path, _updateNewName);
         }
+        _updateNewName = string.Empty;
+        _updateFileData = null;
+        _visibleRenameFolders = false;
         if (result.StatusCode == 200)
         {
             await GetFileData();
-            _updateNewName = string.Empty;
-            _updateFileData=null;
-            _visibleRenameFolders=false;
             await _message.Success("编辑成功");
         }
         else
@@ -157,15 +208,13 @@
     private async Task GetFileData()
     {
         data.Clear();
-        var list=await fileApi.GetFileData(_path);
+        var list = await fileApi.GetFileData(_path);
         data.AddRange(list);
         StateHasChanged();
     }
     private async Task OnEnter(KeyboardEventArgs e)
     {
-        loading = true;
         await GetFileData();
-        loading = false;
     }
 
 }

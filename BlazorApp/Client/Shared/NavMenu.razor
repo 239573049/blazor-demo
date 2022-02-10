@@ -1,4 +1,6 @@
 ﻿
+@*菜单栏展示*@
+
  <Menu Theme="MenuTheme.Dark" DefaultSelectedKeys=@(new[]{"1"}) Mode="MenuMode.Inline">
             <MenuItem Key="1">
                 <NavLink href="/">
@@ -17,7 +19,13 @@
                 <span>文件管理</span>
                 </NavLink>
             </MenuItem>
-            <MenuItem Key="34">
+            <MenuItem Key="4">
+                <NavLink href="sshAdmin">
+                <Icon Type="file" Theme="outline"/>
+                <span>终端管理器</span>
+                </NavLink>
+            </MenuItem>
+            <MenuItem Key="5">
                 <NavLink href="serverAdmin">
                 <Icon Type="file" Theme="outline"/>
                 <span>服务器管理</span>

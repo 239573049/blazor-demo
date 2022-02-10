@@ -452,3 +452,9 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+/Utils/bin
+/Utils/obj
+/Entitys/obj
+/BlazorApp/Client/obj
+/BlazorApp/Server/obj
+/Application/obj

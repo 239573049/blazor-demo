@@ -1,9 +1,0 @@
-E:\source\BlazorApp\BlazorApp\Server\obj\Release\net6.0\BlazorApp.Server.csproj.AssemblyReference.cache
-E:\source\BlazorApp\BlazorApp\Server\obj\Release\net6.0\BlazorApp.Server.GeneratedMSBuildEditorConfig.editorconfig
-E:\source\BlazorApp\BlazorApp\Server\obj\Release\net6.0\BlazorApp.Server.AssemblyInfoInputs.cache
-E:\source\BlazorApp\BlazorApp\Server\obj\Release\net6.0\BlazorApp.Server.AssemblyInfo.cs
-E:\source\BlazorApp\BlazorApp\Server\obj\Release\net6.0\BlazorApp.Server.csproj.CoreCompileInputs.cache
-E:\source\BlazorApp\BlazorApp\Server\obj\Release\net6.0\BlazorApp.Server.MvcApplicationPartsAssemblyInfo.cache
-E:\source\BlazorApp\BlazorApp\Server\obj\Release\net6.0\BlazorApp.Server.RazorAssemblyInfo.cache
-E:\source\BlazorApp\BlazorApp\Server\obj\Release\net6.0\BlazorApp.Server.RazorAssemblyInfo.cs
-E:\source\BlazorApp\BlazorApp\Server\obj\Release\net6.0\BlazorApp.Server.MvcApplicationPartsAssemblyInfo.cs

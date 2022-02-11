@@ -1,5 +1,6 @@
-﻿@inherits LayoutComponentBase
-
+﻿@using Microsoft.AspNetCore.SignalR.Client
+@inherits LayoutComponentBase
+@inject HubConnection? hubConnecton
 <Layout Style="min-height: 100vh; ">
     <Sider Collapsible Collapsed=@collapsed OnCollapse=@onCollapse>
         <div class="logo" />
@@ -21,6 +22,12 @@
 
 @code {
     bool collapsed;
+    protected override async void OnInitialized()
+    {
+        await hubConnecton.StartAsync();
+        
+    }
+
     void onCollapse(bool collapsed) {
         Console.WriteLine(collapsed);
         this.collapsed =collapsed;

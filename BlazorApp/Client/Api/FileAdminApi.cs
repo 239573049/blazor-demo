@@ -17,14 +17,10 @@ public class FileAdminApi
         _httpHelp = httpHelp;
         _messageService= messageService;
     }
-    public async Task<List<FilesDto>> GetFileData(string path)
+    public async Task<ModelStateResult<List<FilesDto>>> GetFileData(string path)
     {
         var data = await _httpHelp.GetAsync<ModelStateResult<List<FilesDto>>>(ApiConfiguration.FileApi + "GetFileData?filePath=" + path);
-        if (data != null && data.StatusCode == 200)
-        {
-            return data.Data!;
-        }
-        return new List<FilesDto>();
+        return data;
     }
     public async Task<ModelStateResult<bool>> DeleteFile(string path)
     {

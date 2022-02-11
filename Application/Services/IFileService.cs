@@ -112,23 +112,31 @@ public class FileService : IFileService
 
     public List<FilesDto> GetFileData(string filePath)
     {
-        if (!Directory.Exists(filePath))
-            return new List<FilesDto>();
-        var files = new List<FilesDto>();
-        var data = Directory.GetDirectories(filePath);
-        foreach (var d in data)
+        try
         {
-            files.Add(new FilesDto { IsFile = false, Path = d, Name = d.Replace(filePath, "") });
+
+            if (!Directory.Exists(filePath))
+                return new List<FilesDto>();
+            var files = new List<FilesDto>();
+            var data = Directory.GetDirectories(filePath);
+            foreach (var d in data)
+            {
+                files.Add(new FilesDto { IsFile = false, Path = d, Name = d.Replace(filePath, "") });
+            }
+            var getFileDatas = Directory.GetFiles(filePath);
+            foreach (var d in getFileDatas)
+            {
+                var file = new FilesDto { Name = d.Replace(filePath, ""), IsFile = true, Path = d };
+                file.Length = GetFileLength(d);
+                file.LengthName = FileUtil.GetSizeFormat(file.Length);
+                files.Add(file);
+            }
+            return files;
         }
-        var getFileDatas = Directory.GetFiles(filePath);
-        foreach (var d in getFileDatas)
+        catch (UnauthorizedAccessException)
         {
-            var file = new FilesDto { Name = d.Replace(filePath, ""), IsFile = true, Path = d };
-            file.Length = GetFileLength(d);
-            file.LengthName = FileUtil.GetSizeFormat(file.Length);
-            files.Add(file);
+            throw new BusinessLogicException("没有权限");
         }
-        return files;
     }
 
     public long? GetFileLength(string filePath)
@@ -192,7 +200,7 @@ public class FileService : IFileService
         }
         catch (UnauthorizedAccessException)
         {
-            throw new BusinessLogicException("访问错误");
+            throw new BusinessLogicException("没有权限");
         }
         catch (Exception)
         {
@@ -221,6 +229,10 @@ public class FileService : IFileService
         catch (NotSupportedException)
         {
             throw new BusinessLogicException("路径不合法");
+        }
+        catch (UnauthorizedAccessException)
+        {
+            throw new BusinessLogicException("没有权限");
         }
         catch (Exception)
         {

@@ -9,8 +9,10 @@
 <div>
     <div>
 
-        <Search Size="@InputSize.Large"
-                Placeholder="请输入路径" OnChange="(e)=>Handle(e)" EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" WrapperStyle="width:70%" />
+        <span><Search Size="@InputSize.Large"
+                Placeholder="请输入路径" OnChange="(e)=>Handle(e)" EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" WrapperStyle="width:70%" /></span>
+                 <span><Button Type="@ButtonType.Dashed" @onclick="PreviousPage">上一页</Button></span>
+                  <span><Button Type="@ButtonType.Dashed" >批量删除</Button></span>
     </div>
     <div>
         <Table DataSource="data" ScrollY="600px" PageSize="10">
@@ -61,7 +63,7 @@
 
 @code {
     private List<FilesDto> data = new List<FilesDto>();
-    private string? _path { get; set; } = @"";
+    private string? _path { get; set; } = @"/";
     /// <summary>
     /// 重命名文件或者文件夹弹窗
     /// </summary>
@@ -107,6 +109,17 @@
     public async Task DelteFile(FilesDto files)
     {
         var data = await fileApi.DeleteFile(files.Path);
+        await GetFileData();
+    }
+    /// <summary>
+    /// 上一页
+    /// </summary>
+    private async Task PreviousPage()
+    {
+        var path = _path.Split("/");
+        path = path.Take(path.Length - 1).ToArray();
+        _path = string.Join("/", path);
+        if (string.IsNullOrEmpty(_path)) _path = "/";
         await GetFileData();
     }
     /// <summary>
@@ -179,7 +192,6 @@
         }
         else
         {
-            await _message.Warning(result.Message);
         }
     }
     /// <summary>
@@ -198,19 +210,27 @@
     /// <param name="files"></param>
     public async Task OpenFolder(FilesDto files)
     {
+        var path = _path;
         _path = files.Path;
-        await GetFileData();
+        if(!await GetFileData()){
+            _path = path;
+        }
     }
     /// <summary>
     /// 加载文件列表
     /// </summary>
     /// <returns></returns>
-    private async Task GetFileData()
+    private async Task<bool> GetFileData()
     {
-        data.Clear();
         var list = await fileApi.GetFileData(_path);
-        data.AddRange(list);
-        StateHasChanged();
+        if (list.StatusCode == 200)
+        {
+            data.Clear();
+            data.AddRange(list.Data);
+            StateHasChanged();
+            return true;
+        }
+        return false;
     }
     private async Task OnEnter(KeyboardEventArgs e)
     {

@@ -6,6 +6,7 @@ namespace BlazorApp.Server.Hubs
     {
         public override Task OnConnectedAsync()
         {
+            var conn=Context.GetHttpContext();
             return base.OnConnectedAsync();
         }
         public override Task OnDisconnectedAsync(Exception? exception)

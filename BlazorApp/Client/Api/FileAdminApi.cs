@@ -3,7 +3,6 @@ using BlazorApp.Client.Configuration;
 using BlazorHelper;
 using Entitys.File;
 using Entitys.Web;
-using Newtonsoft.Json;
 
 namespace BlazorApp.Client.Api;
 public class FileAdminApi
@@ -42,15 +41,10 @@ public class FileAdminApi
         var data = await _httpHelp.PutAsync< ModelStateResult<bool>>(ApiConfiguration.FileApi  + "UpdateNameFile?name=" + newName + "&filePath=" + path,"");
         return data;
     }
-    public async Task<string?> GetFileContent(string filePath)
+    public async Task<ModelStateResult<string>?> GetFileContent(string filePath)
     {
         var data = await _httpHelp.GetAsync<ModelStateResult<string>>(ApiConfiguration.FileApi + "GetFileContent?filePath=" + filePath);
-        if (data.StatusCode == 200)
-        {
-            return data.Data;
-        }
-        await _messageService.Warning(data.Message);
-        return null;
+        return data;
     }
     public async Task<bool> UpdateFileContent(string filePath, string content)
     {

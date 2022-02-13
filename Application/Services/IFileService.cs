@@ -36,6 +36,7 @@ public interface IFileService
     /// <param name="directoryPath"></param>
     /// <returns></returns>
     bool DeleteDirectory(string directoryPath);
+
     /// <summary>
     /// 重命名文件夹
     /// </summary>

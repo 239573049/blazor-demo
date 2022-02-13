@@ -12,10 +12,11 @@
         <span><Search Size="@InputSize.Large"
                 Placeholder="请输入路径" OnChange="(e)=>Handle(e)" EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" WrapperStyle="width:70%" /></span>
                  <span><Button Type="@ButtonType.Dashed" @onclick="PreviousPage">上一页</Button></span>
-                  <span><Button Type="@ButtonType.Dashed" >批量删除</Button></span>
+                  <span><Button Type="@ButtonType.Dashed" @onclick="()=>{_visibleDeletes=true;}">批量删除</Button></span>
     </div>
     <div>
-        <Table DataSource="data" ScrollY="600px" PageSize="10">
+        <Table DataSource="data" ScrollY="600px" PageSize="10" 
+       @bind-SelectedRows="selectedFiles">
             <Selection />
             <AntDesign.Column @bind-Field="@context.Name" Width="350" />
             <AntDesign.Column @bind-Field="@context.LengthName" Width="180" />
@@ -60,9 +61,19 @@
        OnCancel="()=>{_updateFileData=null;_updateFileContent=string.Empty;_visibleUpdateFile=false;}">
     <TextArea Rows="15" @bind-Value="_updateFileContent" />
 </Modal>
-
+@*批量删除确认框*@
+<Modal Title="删除警告"
+       Visible="@_visibleDeletes"
+       OnOk="@DeleteBatches"
+       OnCancel="()=>{_visibleDeletes=false;}">
+       是否确认删除多个文件夹和文件
+</Modal>
 @code {
     private List<FilesDto> data = new List<FilesDto>();
+    /// <summary>
+    /// 选择的数据
+    /// </summary>
+    private IEnumerable<FilesDto> selectedFiles;
     private string? _path { get; set; } = @"/";
     /// <summary>
     /// 重命名文件或者文件夹弹窗
@@ -72,6 +83,10 @@
     /// 编辑文件
     /// </summary>
     private bool _visibleUpdateFile = false;
+    /// <summary>
+    /// 批量删除对话框
+    /// </summary>
+    private bool _visibleDeletes = false;
     /// <summary>
     /// 编辑文件内容;
     /// </summary>
@@ -112,6 +127,14 @@
         await GetFileData();
     }
     /// <summary>
+    /// 批量删除
+    /// </summary>
+    private void DeleteBatches()
+    {
+        var paths = selectedFiles.Select(a => a.Path).ToArray();
+
+    }
+    /// <summary>
     /// 上一页
     /// </summary>
     private async Task PreviousPage()
@@ -135,10 +158,11 @@
             return;
         }
         var content = await fileApi.GetFileContent(files.Path!);
-        if (string.IsNullOrEmpty(content)) return;
+        if (content.StatusCode != 200) return;
+        if (string.IsNullOrEmpty(content.Data)) return;
         _visibleUpdateFile = true;
         _updateFileData = files;
-        _updateFileContent = content;
+        _updateFileContent = content.Data;
     }
     /// <summary>
     /// 保存文件

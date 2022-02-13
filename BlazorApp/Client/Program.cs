@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
-using System.Net;
+using System.Diagnostics;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -16,20 +16,25 @@ var message = new MessageService();
 HubConnection? hubConnecton;
 
 hubConnecton = new HubConnectionBuilder()
-    .WithUrl(new Uri(builder.HostEnvironment.BaseAddress + "fileHub")).Build();
+    .WithUrl(new Uri(builder.HostEnvironment.BaseAddress + "fileHub"), a =>
+    {
+        a.Headers.Add("Id",Guid.NewGuid().ToString("N"));
+    }).Build();
 builder.Services.AddSingleton(sp=> message);
 builder.Services.AddSingleton(hubConnecton);
-builder.Services.AddHttpClientHelper(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) }, async a =>
+var httpClient =new HttpHelper(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+builder.Services.AddHttpClientHelperExtensions(httpClient);
+httpClient.AddRequestBodyHandling(async response =>
 {
-    if (a.StatusCode == HttpStatusCode.OK)
+    if (response.StatusCode == System.Net.HttpStatusCode.OK)
     {
-        var content = JsonConvert.DeserializeObject<ModelStateResult<object>>(await a.Content.ReadAsStringAsync());
-        if (content.StatusCode != 200)
+        var data = JsonConvert.DeserializeObject<ModelStateResult>(await response.Content.ReadAsStringAsync());
+        if (data.StatusCode != 200)
         {
-            await message.Error(content.Message);
+            await message.Error(data.Message);
         }
     }
 });
 var basePath = AppDomain.CurrentDomain.BaseDirectory;
-builder.Services.AddInjectSingleton(Path.Combine(basePath, "BlazorApp.Client.dll"), a => a.Name.EndsWith("Api"));
+builder.Services.AddInjectSingletonExtensions(Path.Combine(basePath, "BlazorApp.Client.dll"), a => a.Name.EndsWith("Api"));
 await builder.Build().RunAsync();

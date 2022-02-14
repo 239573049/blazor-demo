@@ -57,4 +57,32 @@ public class FileAdminApi
         await _messageService.Warning(data.Message);
         return false;
     }
+    /// <summary>
+    /// 删除全部文件
+    /// </summary>
+    /// <param name="paths"></param>
+    /// <returns></returns>
+    public async Task<ModelStateResult<bool>?> DeleteAll(List<DeleteAllDto> paths)
+    {
+        var data = await _httpHelp.PostAsync<ModelStateResult<bool>>(ApiConfiguration.FileApi + "DeleteAll", paths);
+        return data;
+    }
+    /// <summary>
+    /// 压缩文件夹
+    /// </summary>
+    /// <param name="directoryPath"></param>
+    /// <returns></returns>
+    public async Task<ModelStateResult<string>?> CompressDirectoryZIP(string directoryPath)
+    {
+        return await _httpHelp.GetAsync<ModelStateResult<string>>(ApiConfiguration.FileApi + "CompressDirectoryZIP?directoryPath=" + directoryPath);
+    }
+    /// <summary>
+    /// 解压
+    /// </summary>
+    /// <param name="directoryPath"></param>
+    /// <returns></returns>
+    public async Task<ModelStateResult<string>?> ExtractToDirectoryZip(string directoryPath)
+    {
+        return await _httpHelp.GetAsync<ModelStateResult<string>?>(ApiConfiguration.FileApi + "ExtractToDirectoryZip?directoryPath=" + directoryPath);
+    }
 }

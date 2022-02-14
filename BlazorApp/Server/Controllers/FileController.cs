@@ -56,6 +56,16 @@ namespace BlazorApp.Server.Controllers
             return _fileService.DeleteDirectory(directoryPath);
         }
         /// <summary>
+        /// 删除所有文件
+        /// </summary>
+        /// <param name="paths"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public bool DeleteAll(List<DeleteAllDto> paths)
+        {
+            return _fileService.DeleteAll(paths);
+        }
+        /// <summary>
         /// 编辑文件夹名称
         /// </summary>
         /// <param name="directoryPath"></param>
@@ -97,6 +107,26 @@ namespace BlazorApp.Server.Controllers
         public bool UpdateFileContent(string filePath,[FromBody]string content)
         {
             return _fileService.UpdateFileContent(filePath, content);
+        }
+        /// <summary>
+        /// 压缩文件夹（zip）
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public string CompressDirectoryZIP(string directoryPath)
+        {
+            return _fileService.CompressDirectoryZIP(directoryPath);
+        }
+        /// <summary>
+        /// 解压zip
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public string ExtractToDirectoryZip(string directoryPath)
+        {
+            return _fileService.ExtractToDirectoryZip(directoryPath);
         }
     }
 }

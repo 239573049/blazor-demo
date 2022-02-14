@@ -10,7 +10,7 @@
     <div>
 
         <span><Search Size="@InputSize.Large"
-                Placeholder="请输入路径" OnChange="(e)=>Handle(e)" EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" WrapperStyle="width:70%" /></span>
+                Placeholder="请输入路径"  EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" WrapperStyle="width:70%" /></span>
                  <span><Button Type="@ButtonType.Dashed" @onclick="PreviousPage">上一页</Button></span>
                   <span><Button Type="@ButtonType.Dashed" @onclick="()=>{_visibleDeletes=true;}">批量删除</Button></span>
     </div>
@@ -30,7 +30,10 @@
                         <Button Type="@ButtonType.Text">删除</Button>
                     </Popconfirm>
                     <Button Type="@ButtonType.Text" @onclick="()=>UpdateNameDirectory(context)">重命名</Button>
-                    <Button Type="@ButtonType.Text">压缩</Button>
+                    @if (@context.Name.EndsWith(".zip"))
+                    {
+                        <Button Type="@ButtonType.Text" @onclick="()=>ExtractToDirectoryZip(context)">解压</Button>
+                    }
                 }
                 else
                 {
@@ -39,7 +42,7 @@
                         <Button Type="@ButtonType.Text">删除</Button>
                     </Popconfirm>
                     <Button Type="@ButtonType.Text" @onclick="()=>UpdateNameDirectory(context)">重命名</Button>
-                    <Button Type="@ButtonType.Text">压缩</Button>
+                    <Button Type="@ButtonType.Text" @onclick="()=>CompressDirectoryZIP(context)">压缩</Button>
                 }
             </ActionColumn>
         </Table>
@@ -97,10 +100,6 @@
     private FilesDto? _updateFileData = null;
 
     private string? _updateNewName;
-    private void Handle(string value)
-    {
-        Console.WriteLine(value);
-    }
     /// <summary>
     /// 初始化
     /// </summary> <summary>
@@ -117,6 +116,32 @@
         await GetFileData();
     }
     /// <summary>
+    /// 压缩文件夹
+    /// </summary>
+    /// <param name="files"></param>
+    /// <returns></returns>
+    private async Task CompressDirectoryZIP(FilesDto files)
+    {
+        var data =await fileApi.CompressDirectoryZIP(files.Path);
+        if (data.StatusCode == 200)
+        {
+            await GetFileData();
+        }
+    }
+    /// <summary>
+    /// 解压zip文件
+    /// </summary>
+    /// <param name="file"></param>
+    /// <returns></returns>
+    public async Task ExtractToDirectoryZip(FilesDto file)
+    {
+        var data=await fileApi.ExtractToDirectoryZip(file.Path);
+        if (data.StatusCode == 200)
+        {
+            await GetFileData();
+        }
+    }
+    /// <summary>
     /// 删除文件
     /// </summary>
     /// <param name="files"></param>
@@ -129,10 +154,16 @@
     /// <summary>
     /// 批量删除
     /// </summary>
-    private void DeleteBatches()
+    private async void DeleteBatches()
     {
-        var paths = selectedFiles.Select(a => a.Path).ToArray();
-
+        var paths = selectedFiles.Select(a => new DeleteAllDto{Path=a.Path,IsFile=a.IsFile}).ToList();
+        var data= await fileApi.DeleteAll(paths);
+        await GetFileData();
+        if (data.StatusCode == 200)
+        {
+            await _message.Success("删除成功");
+        }
+        _visibleDeletes = false;
     }
     /// <summary>
     /// 上一页

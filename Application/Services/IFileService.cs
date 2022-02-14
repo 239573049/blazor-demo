@@ -1,4 +1,5 @@
 ﻿using Entitys.File;
+using System.IO.Compression;
 using System.Security;
 using System.Text;
 using Utils;
@@ -36,7 +37,12 @@ public interface IFileService
     /// <param name="directoryPath"></param>
     /// <returns></returns>
     bool DeleteDirectory(string directoryPath);
-
+    /// <summary>
+    /// 删除全部
+    /// </summary>
+    /// <param name="paths"></param>
+    /// <returns></returns>
+    bool DeleteAll(List<DeleteAllDto> paths);
     /// <summary>
     /// 重命名文件夹
     /// </summary>
@@ -64,9 +70,56 @@ public interface IFileService
     /// <param name="content"></param>
     /// <returns></returns>
     bool UpdateFileContent(string filePath, string content);
+    /// <summary>
+    /// 压缩文件(ZIP)
+    /// </summary>
+    /// <param name="filePath"></param>
+    /// <returns></returns>
+    string CompressDirectoryZIP(string directoryPath);
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="directoryPath"></param>
+    /// <returns></returns>
+    string ExtractToDirectoryZip(string directoryPath);
 }
 public class FileService : IFileService
 {
+    public string CompressDirectoryZIP(string directoryPath)
+    {
+        if (!Directory.Exists(directoryPath)) throw new BusinessLogicException("文件不存在或者已经被删除");
+        var compressPath = directoryPath + ".zip";
+        try
+        {
+            ZipFile.CreateFromDirectory(directoryPath, compressPath);
+        }
+        catch (UnauthorizedAccessException)
+        {
+            throw new BusinessLogicException("没有权限");
+        }
+        catch (IOException)
+        {
+            throw new BusinessLogicException("可能存在项目压缩名称文件");
+        }
+        return compressPath;
+    }
+
+    public bool DeleteAll(List<DeleteAllDto> paths)
+    {
+        foreach (var d in paths)
+        {
+            if (!d.IsFile)
+            {
+                DeleteDirectory(d.Path);
+            }
+            else
+            {
+                DeleteFile(d.Path);
+            }
+        }
+        return true;
+    }
+
     public bool DeleteDirectory(string directoryPath)
     {
         try
@@ -86,6 +139,25 @@ public class FileService : IFileService
         if (!File.Exists(filePath)) throw new BusinessLogicException("文件不存在");
         File.Delete(filePath);
         return true;
+    }
+
+    public string ExtractToDirectoryZip(string directoryPath)
+    {
+        var newPath = directoryPath.TrimEnd('p', 'i', 'z', '.');
+        if (!IsExitFile(directoryPath)) throw new BusinessLogicException("解压文件不存在");
+        try
+        {
+            ZipFile.ExtractToDirectory(directoryPath, newPath);
+        }
+        catch (UnauthorizedAccessException)
+        {
+            throw new BusinessLogicException("没有权限");
+        }
+        catch (IOException)
+        {
+            throw new BusinessLogicException("可能存在项目压缩名称文件");
+        }
+        return newPath;
     }
 
     public  string? GetFileContent(string filePath)

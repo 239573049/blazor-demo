@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="SSH.NET" Version="2020.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Entitys\Entitys.csproj" />
     <ProjectReference Include="..\Utils\Utils.csproj" />
   </ItemGroup>

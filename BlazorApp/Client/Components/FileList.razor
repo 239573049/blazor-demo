@@ -13,6 +13,7 @@
                 Placeholder="请输入路径"  EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" WrapperStyle="width:70%" /></span>
                  <span><Button Type="@ButtonType.Dashed" @onclick="PreviousPage">上一页</Button></span>
                   <span><Button Type="@ButtonType.Dashed" @onclick="()=>{_visibleDeletes=true;}">批量删除</Button></span>
+                  <span><Button Type="@ButtonType.Dashed" @onclick="()=>{_visibleDeletes=true;}">新建文件夹</Button></span>
     </div>
     <div>
         <Table DataSource="data" ScrollY="600px" PageSize="10" 
@@ -71,6 +72,13 @@
        OnCancel="()=>{_visibleDeletes=false;}">
        是否确认删除多个文件夹和文件
 </Modal>
+@*新建文件夹*@
+<Modal Title="新建文件夹"
+       Visible="@_visibleDeletes"
+       OnOk="@DeleteBatches"
+       OnCancel="()=>{_visibleDeletes=false;}">
+
+</Modal>
 @code {
     private List<FilesDto> data = new List<FilesDto>();
     /// <summary>
@@ -114,6 +122,15 @@
     private async Task OnSearch()
     {
         await GetFileData();
+    }
+    /// <summary>
+    /// 新建文件夹
+    /// </summary>
+    /// <param name="data"></param>
+    private void CreateDirectory(string data)
+    {
+        
+        
     }
     /// <summary>
     /// 压缩文件夹

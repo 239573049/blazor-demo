@@ -3,6 +3,7 @@ using BlazorApp.Client.Configuration;
 using BlazorHelper;
 using Entitys.File;
 using Entitys.Web;
+using Newtonsoft.Json;
 
 namespace BlazorApp.Client.Api;
 public class FileAdminApi
@@ -48,7 +49,7 @@ public class FileAdminApi
     }
     public async Task<bool> UpdateFileContent(string filePath, string content)
     {
-        var data = await _httpHelp.PostAsync<ModelStateResult<bool>>(ApiConfiguration.FileApi + "UpdateFileContent?filePath=" + filePath, content);
+        var data = JsonConvert.DeserializeObject<ModelStateResult<bool>>(await _httpHelp.PostAsync(ApiConfiguration.FileApi + "UpdateFileContent?filePath=" + filePath, content));
         if(data.StatusCode == 200)
         {
             await _messageService.Success("编辑成功");
@@ -64,8 +65,8 @@ public class FileAdminApi
     /// <returns></returns>
     public async Task<ModelStateResult<bool>?> DeleteAll(List<DeleteAllDto> paths)
     {
-        var data = await _httpHelp.PostAsync<ModelStateResult<bool>>(ApiConfiguration.FileApi + "DeleteAll", paths);
-        return data;
+        var data = await _httpHelp.PostAsync(ApiConfiguration.FileApi + "DeleteAll", paths);
+        return JsonConvert.DeserializeObject<ModelStateResult<bool>>(data);
     }
     /// <summary>
     /// 压缩文件夹

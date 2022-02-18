@@ -24,6 +24,7 @@ namespace BlazorApp.Server.Jobs
             lock (_lock)
             {
                 data.SystemOs = RuntimeInformation.OSDescription;
+                data.OnLine = FileHub.ConnectIds.Count();
                 if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 {
                     data.Available = WinUtil.GetRAM();

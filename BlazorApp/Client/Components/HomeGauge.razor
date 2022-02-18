@@ -1,26 +1,31 @@
-﻿<style>
+﻿@using Entitys.Web
+@using Microsoft.AspNetCore.SignalR.Client
+@using Newtonsoft.Json
+<style>
     .ant-progress-circle-wrap,
     .ant-progress-line-wrap {
         margin-right: 8px;
         margin-bottom: 5px;
     }
 </style>
+@inject HubConnection? hubConnecton
+@implements IDisposable
 
-<Space Direction="DirectionVHType.Vertical"  Style="width: 100%;">
-    <SpaceItem  Style="width: 100%;">
-        <Card Title=@("状态") Style="width: 100%;">
+<Space Direction="DirectionVHType.Vertical" Style="width: 100%;">
+    <SpaceItem Style="width: 100%;">
+        <Card Title=@($"状态               系统：{serviceInfo.SystemOs}") Style="width: 100%;">
             <Row>
                 <Col Span="12">
-                    <div>
-                        CPU使用率
-                    </div><br/>
-                    <div><Progress Type="ProgressType.Circle" Percent=75 /></div>
+                <div>
+                    CPU使用率
+                </div><br />
+                <div><Progress Type="ProgressType.Circle" Percent=serviceInfo.Cpu /></div>
                 </Col>
                 <Col Span="12">
-                    <div>
-                        内存使用率
-                    </div><br/>
-                    <div><Progress Type="ProgressType.Circle" Percent=75 /></div>
+                <div>
+                    内存使用率
+                </div><br />
+                <div><Progress Type="ProgressType.Circle" Percent=serviceInfo.Usage /></div>
                 </Col>
             </Row>
         </Card>
@@ -34,6 +39,27 @@
 </Space>
 
 @code {
+    private ServiceInfoModel serviceInfo = new ServiceInfoModel();
+    /// <summary>
+    /// 初始化界面
+    /// </summary>
+    protected override void OnInitialized()
+    {
+        hubConnecton!.SendAsync("");
+        hubConnecton!.On<string>("ServiceInfo", (message =>
+          {
+              var info = JsonConvert.DeserializeObject<ServiceInfoModel>(message);
+              if (info != null)
+              {
+                  serviceInfo = info;
+                  StateHasChanged();
+              }
+          }));
+    }
 
+    public void Dispose()
+    {
+        hubConnecton!.Remove("ServiceInfo");
 
+    }
 }

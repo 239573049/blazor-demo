@@ -56,7 +56,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllers();
     endpoints.MapHub<FileHub>("/fileHub");
 });
-
+app.UseJobServiceStep();
 app.MapRazorPages();
 app.MapControllers();
 app.MapFallbackToFile("index.html");

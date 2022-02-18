@@ -1,4 +1,4 @@
-﻿namespace BlazorApp.Server.WebVM
+﻿namespace Entitys.Web
 {
     public class ServiceInfoModel
     {

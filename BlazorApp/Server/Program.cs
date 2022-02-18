@@ -2,6 +2,10 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using BlazorApp.Server.Global;
 using BlazorApp.Server.Hubs;
+using BlazorApp.Server.Jobs;
+using Quartz;
+using Quartz.Impl;
+using Quartz.Spi;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +16,7 @@ builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttri
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddSignalR();
+builder.Services.AddJobServiceStep();
 builder.Services.AddControllers(o =>
 {
     o.Filters.Add(typeof(GlobalExceptionsFilter));

@@ -9,15 +9,16 @@
 <div>
     <div>
 
-        <span><Search Size="@InputSize.Large"
-                Placeholder="请输入路径"  EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" WrapperStyle="width:70%" /></span>
-                 <span><Button Type="@ButtonType.Dashed" @onclick="PreviousPage">上一页</Button></span>
-                  <span><Button Type="@ButtonType.Dashed" @onclick="()=>{_visibleDeletes=true;}">批量删除</Button></span>
-                  <span><Button Type="@ButtonType.Dashed" @onclick="()=>{_visibleDeletes=true;}">新建文件夹</Button></span>
+        <span>
+            <Search Size="@InputSize.Large" Placeholder="请输入路径" EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" WrapperStyle="width:70%" />
+        </span>
+        <span><Button Type="@ButtonType.Dashed" @onclick="PreviousPage">上一页</Button></span>
+        <span><Button Type="@ButtonType.Dashed" @onclick="()=>{_visibleDeletes=true;}">批量删除</Button></span>
+        <span><Button Type="@ButtonType.Dashed" @onclick="()=>{_visibleDeletes=true;}">新建文件夹</Button></span>
     </div>
     <div>
-        <Table DataSource="data" ScrollY="600px" PageSize="10" 
-       @bind-SelectedRows="selectedFiles">
+        <Table DataSource="data" ScrollY="600px" PageSize="10"
+               @bind-SelectedRows="selectedFiles">
             <Selection />
             <AntDesign.Column @bind-Field="@context.Name" Width="350" />
             <AntDesign.Column @bind-Field="@context.LengthName" Width="180" />
@@ -70,7 +71,7 @@
        Visible="@_visibleDeletes"
        OnOk="@DeleteBatches"
        OnCancel="()=>{_visibleDeletes=false;}">
-       是否确认删除多个文件夹和文件
+    是否确认删除多个文件夹和文件
 </Modal>
 @*新建文件夹*@
 <Modal Title="新建文件夹"
@@ -129,8 +130,8 @@
     /// <param name="data"></param>
     private void CreateDirectory(string data)
     {
-        
-        
+
+
     }
     /// <summary>
     /// 压缩文件夹
@@ -139,7 +140,7 @@
     /// <returns></returns>
     private async Task CompressDirectoryZIP(FilesDto files)
     {
-        var data =await fileApi.CompressDirectoryZIP(files.Path);
+        var data = await fileApi.CompressDirectoryZIP(files.Path);
         if (data.StatusCode == 200)
         {
             await GetFileData();
@@ -152,7 +153,7 @@
     /// <returns></returns>
     public async Task ExtractToDirectoryZip(FilesDto file)
     {
-        var data=await fileApi.ExtractToDirectoryZip(file.Path);
+        var data = await fileApi.ExtractToDirectoryZip(file.Path);
         if (data.StatusCode == 200)
         {
             await GetFileData();
@@ -173,8 +174,8 @@
     /// </summary>
     private async void DeleteBatches()
     {
-        var paths = selectedFiles.Select(a => new DeleteAllDto{Path=a.Path,IsFile=a.IsFile}).ToList();
-        var data= await fileApi.DeleteAll(paths);
+        var paths = selectedFiles.Select(a => new DeleteAllDto { Path = a.Path, IsFile = a.IsFile }).ToList();
+        var data = await fileApi.DeleteAll(paths);
         await GetFileData();
         if (data.StatusCode == 200)
         {
@@ -284,7 +285,8 @@
     {
         var path = _path;
         _path = files.Path;
-        if(!await GetFileData()){
+        if (!await GetFileData())
+        {
             _path = path;
         }
     }

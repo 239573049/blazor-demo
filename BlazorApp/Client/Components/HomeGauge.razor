@@ -1,0 +1,39 @@
+﻿<style>
+    .ant-progress-circle-wrap,
+    .ant-progress-line-wrap {
+        margin-right: 8px;
+        margin-bottom: 5px;
+    }
+</style>
+
+<Space Direction="DirectionVHType.Vertical"  Style="width: 100%;">
+    <SpaceItem  Style="width: 100%;">
+        <Card Title=@("状态") Style="width: 100%;">
+            <Row>
+                <Col Span="12">
+                    <div>
+                        CPU使用率
+                    </div><br/>
+                    <div><Progress Type="ProgressType.Circle" Percent=75 /></div>
+                </Col>
+                <Col Span="12">
+                    <div>
+                        内存使用率
+                    </div><br/>
+                    <div><Progress Type="ProgressType.Circle" Percent=75 /></div>
+                </Col>
+            </Row>
+        </Card>
+    </SpaceItem>
+    <SpaceItem>
+        <Card Title=@("Card") Style="width: 100%;">
+            <p>Card </p>
+            <p>Card content</p>
+        </Card>
+    </SpaceItem>
+</Space>
+
+@code {
+
+
+}

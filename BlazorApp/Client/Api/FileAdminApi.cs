@@ -86,4 +86,14 @@ public class FileAdminApi
     {
         return await _httpHelp.GetAsync<ModelStateResult<string>>(ApiConfiguration.FileApi + "ExtractToDirectoryZip?directoryPath=" + directoryPath);
     }
+    /// <summary>
+    /// 创建文件夹
+    /// </summary>
+    /// <param name="path"></param>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public async Task<ModelStateResult<string>?> CreateDirectory(string path,string name)
+    {
+        return await _httpHelp.GetAsync<ModelStateResult<string>>(ApiConfiguration.FileApi + $"CreateDirectory?path={path}&name={name}");
+    }
 }

@@ -82,6 +82,12 @@ public interface IFileService
     /// <param name="directoryPath"></param>
     /// <returns></returns>
     string ExtractToDirectoryZip(string directoryPath);
+    /// <summary>
+    /// 创建文件夹
+    /// </summary>
+    /// <param name="path"></param>
+    /// <param name="name"></param>
+    string CreateDirectory(string path,string name);
 }
 public class FileService : IFileService
 {
@@ -102,6 +108,13 @@ public class FileService : IFileService
             throw new BusinessLogicException("可能存在项目压缩名称文件");
         }
         return compressPath;
+    }
+
+    public string CreateDirectory(string path, string name)
+    {
+        path = Path.Combine(path, name);
+        _= Directory.CreateDirectory(path);
+        return path;
     }
 
     public bool DeleteAll(List<DeleteAllDto> paths)

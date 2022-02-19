@@ -128,5 +128,16 @@ namespace BlazorApp.Server.Controllers
         {
             return _fileService.ExtractToDirectoryZip(directoryPath);
         }
+        /// <summary>
+        /// 创建文件夹
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public string CreateDirectory(string path, string name)
+        {
+            return _fileService.CreateDirectory(path, name);
+        }
     }
 }

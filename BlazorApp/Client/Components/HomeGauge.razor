@@ -31,9 +31,8 @@
         </Card>
     </SpaceItem>
     <SpaceItem>
-        <Card Title=@("Card") Style="width: 100%;">
-            <p>Card </p>
-            <p>Card content</p>
+        <Card Title=@("内容") Style="width: 100%;">
+
         </Card>
     </SpaceItem>
 </Space>
@@ -45,7 +44,7 @@
     /// </summary>
     protected override void OnInitialized()
     {
-        hubConnecton!.SendAsync("");
+        hubConnecton!.SendAsync("ServiceInfoSend",true);
         hubConnecton!.On<string>("ServiceInfo", (message =>
           {
               var info = JsonConvert.DeserializeObject<ServiceInfoModel>(message);
@@ -59,7 +58,8 @@
 
     public void Dispose()
     {
-        hubConnecton!.Remove("ServiceInfo");
+        hubConnecton!.SendAsync("ServiceInfoSend",false);
+        hubConnecton!.Remove("ServiceInfo");//务必清除
 
     }
 }

@@ -21,6 +21,7 @@ namespace BlazorApp.Server.Jobs
             app.Lifetime.ApplicationStarted.Register(async () =>
             {
                 await _quartzFactory.Start();
+                await QuartzFactory._scheduler.PauseTrigger(ServerInfoJob._triggerKey);
             });
             return app;
         }

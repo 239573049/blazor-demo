@@ -75,9 +75,9 @@
 </Modal>
 @*新建文件夹*@
 <Modal Title="新建文件夹"
-       Visible="@_visibleDeletes"
-       OnOk="@DeleteBatches"
-       OnCancel="()=>{_visibleDeletes=false;}">
+       Visible="@_visibleCreateDirectory"
+       OnOk="@CreateDirectory"
+       OnCancel="()=>{_visibleCreateDirectory=false;}">
 
 </Modal>
 @code {
@@ -107,7 +107,7 @@
     /// 编辑东西临时
     /// </summary>
     private FilesDto? _updateFileData = null;
-
+    private bool _visibleCreateDirectory = false;
     private string? _updateNewName;
     /// <summary>
     /// 初始化
@@ -127,8 +127,7 @@
     /// <summary>
     /// 新建文件夹
     /// </summary>
-    /// <param name="data"></param>
-    private void CreateDirectory(string data)
+    private void CreateDirectory()
     {
 
 

@@ -7,9 +7,9 @@ namespace BlazorApp.Server.Jobs
     public class QuartzFactory
     {
         //1、声明一个调度工厂
-        private ISchedulerFactory _schedulerFactory;
-        public static IScheduler _scheduler = default;
-        private IJobFactory _IOCjobFactory;
+        private readonly ISchedulerFactory _schedulerFactory;
+        public static IScheduler? _scheduler;
+        private readonly IJobFactory _IOCjobFactory;
         public QuartzFactory(ISchedulerFactory schedulerFactory, IJobFactory jobFactory)
         {
             _schedulerFactory = schedulerFactory;

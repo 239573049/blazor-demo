@@ -6,7 +6,10 @@ namespace Utils
     public class WinUtil
     {
         static readonly PerformanceCounter cpuCounter = new("Processor", "% Processor Time", "_Total");
+#pragma warning disable CA1416 // 验证平台兼容性
         static readonly PerformanceCounter ramCounter = new("Memory", "Available MBytes");
+#pragma warning restore CA1416 // 验证平台兼容性
+#pragma warning disable CA1416 // 验证平台兼容性
         static readonly PerformanceCounter uptime = new("System", "System Up Time");
 
 

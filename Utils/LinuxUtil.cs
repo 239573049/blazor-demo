@@ -54,7 +54,7 @@
 
         private static string? ReadArgumentValue(StreamReader sr)
         {
-            string values = null;
+            string? values = null;
             if (sr != null)
             {
                 while (!sr.EndOfStream)

@@ -20,27 +20,27 @@ public class FileAdminApi
     public async Task<ModelStateResult<List<FilesDto>>> GetFileData(string path)
     {
         var data = await _httpHelp.GetAsync<ModelStateResult<List<FilesDto>>>(ApiConfiguration.FileApi + "GetFileData?filePath=" + path);
-        return data;
+        return data!;
     }
     public async Task<ModelStateResult<bool>> DeleteFile(string path)
     {
         var data = await _httpHelp.DeleteAsync<ModelStateResult<bool>>(ApiConfiguration.FileApi + "DeleteFile?filePath=" + path);
-        return data;
+        return data!;
     }
     public async Task<ModelStateResult<bool>> DeleteDirectory(string path)
     {
         var data = await _httpHelp.DeleteAsync<ModelStateResult<bool>>(ApiConfiguration.FileApi  + "DeleteDirectory?directoryPath=" + path);
-        return data;
+        return data!;
     }
     public async Task<ModelStateResult<bool>> UpdateNameDirectory(string path, string newName)
     {
         var data = await _httpHelp.PutAsync<ModelStateResult<bool>>(ApiConfiguration.FileApi  + "UpdateNameDirectory?directoryPath=" + path + "&name=" + newName, "");
-        return data;
+        return data!;
     }
     public async Task<ModelStateResult<bool>> UpdateNameFile(string path, string newName)
     {
         var data = await _httpHelp.PutAsync< ModelStateResult<bool>>(ApiConfiguration.FileApi  + "UpdateNameFile?name=" + newName + "&filePath=" + path,"");
-        return data;
+        return data!;
     }
     public async Task<ModelStateResult<string>?> GetFileContent(string filePath)
     {
@@ -50,7 +50,7 @@ public class FileAdminApi
     public async Task<bool> UpdateFileContent(string filePath, string content)
     {
         var data = JsonConvert.DeserializeObject<ModelStateResult<bool>>(await _httpHelp.PostAsync(ApiConfiguration.FileApi + "UpdateFileContent?filePath=" + filePath, content));
-        if(data.StatusCode == 200)
+        if(data!.StatusCode == 200)
         {
             await _messageService.Success("编辑成功");
             return true;
@@ -84,6 +84,6 @@ public class FileAdminApi
     /// <returns></returns>
     public async Task<ModelStateResult<string>?> ExtractToDirectoryZip(string directoryPath)
     {
-        return await _httpHelp.GetAsync<ModelStateResult<string>?>(ApiConfiguration.FileApi + "ExtractToDirectoryZip?directoryPath=" + directoryPath);
+        return await _httpHelp.GetAsync<ModelStateResult<string>>(ApiConfiguration.FileApi + "ExtractToDirectoryZip?directoryPath=" + directoryPath);
     }
 }

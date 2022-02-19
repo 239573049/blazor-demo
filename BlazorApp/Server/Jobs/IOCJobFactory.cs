@@ -12,7 +12,7 @@ namespace BlazorApp.Server.Jobs
         }
         public IJob NewJob(TriggerFiredBundle bundle, IScheduler scheduler)
         {
-            return _serviceProvider.GetService(bundle.JobDetail.JobType) as IJob;
+            return (IJob)_serviceProvider.GetService(bundle.JobDetail.JobType)!;
 
         }
 

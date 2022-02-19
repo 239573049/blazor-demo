@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS8669: 对可为 null 的引用类型的批注只应在 "#nullable" 批注上下文中的代码中使用。自动生成的代码要求在源中使用显式 "#nullable" 指令。
+dotnet_diagnostic.CS8669.severity = none

@@ -1,5 +1,7 @@
 ﻿using BlazorApp.Server.Jobs;
+using Entitys.SSH;
 using Microsoft.AspNetCore.SignalR;
+using Newtonsoft.Json;
 using Quartz;
 using System.Collections.Concurrent;
 
@@ -41,6 +43,15 @@ namespace BlazorApp.Server.Hubs
                 }
             }
             await base.Clients.Clients(connect!).SendAsync("ServiceInfoMessage", true);
+        }
+        public async Task SSHConnectSend(string json)
+        {
+            var sSHUser = JsonConvert.DeserializeObject<SSHUser>(json);
+            await Clients.Clients(Context.ConnectionId).SendAsync("SSHConnectMessage",true);
+        }
+        public async Task SSHSend(string code)
+        {
+
         }
     }
 }

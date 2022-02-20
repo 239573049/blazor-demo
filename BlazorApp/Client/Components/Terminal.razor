@@ -1,7 +1,11 @@
 ﻿@inject IJSRuntime JS
 @using System.ComponentModel.DataAnnotations;
 @using System.Text.Json;
+@using Entitys.SSH
+@using Microsoft.AspNetCore.SignalR.Client
+@using Newtonsoft.Json
 @inject MessageService _message
+@inject HubConnection? hubConnecton
 @inject ISessionStorageService sessionStorage
 @*重命名弹窗*@
 <Modal Title="请先登录SSh"
@@ -24,27 +28,26 @@
 </Modal>
 @code {
     private bool _visibleLoginSsh = false;
-    private class SSH
-    {
-        [Required]
-        public string? Host { get; set; } = "127.0.0.1";
-        [Required]
-        public int Port { get; set; } = 22;
-        public string? Username { get; set; }
-        public string? Password { get; set; }
-
-    }
-    private SSH? _sshUser;
+    private SSHUser? _sshUser;
+    private bool isLogin = false;
     protected override async void OnInitialized()
     {
-        _sshUser=await sessionStorage.GetItemAsync<SSH>("sshUser");
+        _sshUser=await sessionStorage.GetItemAsync<SSHUser>("sshUser");
         _visibleLoginSsh = _sshUser == null;
-        _sshUser = new SSH();
+        _sshUser = new SSHUser();
         StateHasChanged();
+    }
+    public void ConnectSSH()
+    {
+        hubConnecton!.SendAsync("SSHConnectSend", JsonConvert.SerializeObject(_sshUser));
+        hubConnecton!.On<bool>("hubConnectonMessage", (message) =>
+        {
+            isLogin = message;
+        });
     }
     public void LoginSshOk()
     {
-        if (string.IsNullOrEmpty(_sshUser.Host))
+        if (string.IsNullOrEmpty(_sshUser?.Host))
         {
             _message.Warning("主机名不能为空");
             return;

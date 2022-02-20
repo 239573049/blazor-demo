@@ -1,17 +1,20 @@
 using AntDesign;
 using BlazorApp.Client;
+using Blazored.SessionStorage;
 using BlazorHelper;
-using Entitys.Web;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.AspNetCore.SignalR.Client;
-using Newtonsoft.Json;
-using static System.Net.WebRequestMethods;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddAntDesign();
+builder.Services.AddBlazoredSessionStorage(c =>
+{
+    c.JsonSerializerOptions.WriteIndented = true;
+
+});
 var message = new MessageService();
 HubConnection? hubConnecton;
 

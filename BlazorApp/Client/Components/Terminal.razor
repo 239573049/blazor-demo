@@ -1,13 +1,25 @@
 ﻿@inject IJSRuntime JS
 @using System.ComponentModel.DataAnnotations;
 @using System.Text.Json;
-
+@inject MessageService _message
+@inject ISessionStorageService sessionStorage
 @*重命名弹窗*@
 <Modal Title="请先登录SSh"
        Visible="@_visibleLoginSsh"
        OnOk="@LoginSshOk"
        OnCancel="()=>{_visibleLoginSsh=false;}">
-
+       <span>
+            主机名称：<Input Placeholder="主机名称" @bind-Value="@_sshUser.Host"  />
+       </span>
+       <span>
+            端口：<Input Placeholder="端口" @bind-Value="@_sshUser.Port"  />
+       </span>
+       <span>
+            账号：<Input Placeholder="账号" @bind-Value="@_sshUser.Username"  />
+       </span>
+       <span>
+            密码：<InputPassword  Placeholder="密码" @bind-Value="@_sshUser.Password"  />
+       </span>
 
 </Modal>
 @code {
@@ -15,15 +27,28 @@
     private class SSH
     {
         [Required]
-        public string? Host { get; set; }
+        public string? Host { get; set; } = "127.0.0.1";
         [Required]
-        public int Port { get; set; }
+        public int Port { get; set; } = 22;
         public string? Username { get; set; }
         public string? Password { get; set; }
 
     }
+    private SSH? _sshUser;
+    protected override async void OnInitialized()
+    {
+        _sshUser=await sessionStorage.GetItemAsync<SSH>("sshUser");
+        _visibleLoginSsh = _sshUser == null;
+        _sshUser = new SSH();
+        StateHasChanged();
+    }
     public void LoginSshOk()
     {
-        
+        if (string.IsNullOrEmpty(_sshUser.Host))
+        {
+            _message.Warning("主机名不能为空");
+            return;
+        }
+
     }
 }

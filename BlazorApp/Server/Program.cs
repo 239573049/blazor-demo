@@ -3,9 +3,6 @@ using Autofac.Extensions.DependencyInjection;
 using BlazorApp.Server.Global;
 using BlazorApp.Server.Hubs;
 using BlazorApp.Server.Jobs;
-using Quartz;
-using Quartz.Impl;
-using Quartz.Spi;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -47,7 +44,6 @@ else
 }
 
 app.UseHttpsRedirection();
-
 app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();
 app.UseRouting();
@@ -60,5 +56,4 @@ app.UseJobServiceStep();
 app.MapRazorPages();
 app.MapControllers();
 app.MapFallbackToFile("index.html");
-
 app.Run();

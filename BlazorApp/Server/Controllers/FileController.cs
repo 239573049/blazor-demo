@@ -139,5 +139,21 @@ namespace BlazorApp.Server.Controllers
         {
             return _fileService.CreateDirectory(path, name);
         }
+        /// <summary>
+        /// 上传文件
+        /// </summary>
+        /// <param name="files"></param>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public bool CreateFile(List<IFormFile> files,string path)
+        {
+            var data = files.Select(a => new CreateFileDto
+            {
+                Path = Path.Combine(path, a.Name),
+                stream = a.OpenReadStream()
+            }).ToList();
+            return _fileService.CreateFile(data);
+        }
     }
 }

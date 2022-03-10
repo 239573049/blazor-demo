@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Newtonsoft.Json;
+using System.Diagnostics;
 using Utils;
 using Web.WebVM;
 
@@ -28,7 +29,7 @@ namespace BlazorApp.Server.Global
         /// 
         /// </summary>
         /// <param name="context"></param>
-        //[DebuggerStepThrough]
+        [DebuggerStepThrough]
         public override void OnException(ExceptionContext context)
         {
             if (context.ExceptionHandled == false)
@@ -38,7 +39,7 @@ namespace BlazorApp.Server.Global
                 {
                     StatusCode = ex ==null?500: ex.Code,
                     Message = ex==null? context.Exception.Message:ex.Message
-                };
+};
                 _loggerHelper.LogError(context.HttpContext.Request.Path, context.Exception, context.HttpContext.Request.Body);
                 context.Result = new ContentResult
                 {

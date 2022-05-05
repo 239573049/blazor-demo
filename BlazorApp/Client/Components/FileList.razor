@@ -3,18 +3,29 @@
 @using BlazorApp.Client.Api
 @using Entitys.File
 @using Entitys.Web
+@using Newtonsoft.Json
 @using Utils;
 @inject MessageService _message
 @inject FileAdminApi fileApi
 <div>
     <div>
-
         <span>
             <Search Size="@InputSize.Large" Placeholder="请输入路径" EnterButton="true" @bind-Value="@_path" OnSearch="OnSearch" WrapperStyle="width:70%" />
         </span>
         <span><Button Type="@ButtonType.Dashed" @onclick="PreviousPage">上一页</Button></span>
         <span><Button Type="@ButtonType.Dashed" @onclick="()=>{_visibleDeletes=true;}">批量删除</Button></span>
-        <span><Button Type="@ButtonType.Dashed" @onclick="()=>{_visibleDeletes=true;}">新建文件夹</Button></span>
+        <span><Button Type="@ButtonType.Dashed" @onclick="()=>{_visibleCreateDirectory=true;}">新建文件夹</Button></span>
+        <span>
+            <Upload @attributes="attrs"
+                    FileList="fileList"
+                    Multiple
+                    Action="@uploading"
+                    ShowUploadList=false
+                    BeforeAllUpload="HandleFileList"
+                    OnChange="HandleChange">
+                <Button Type="@ButtonType.Dashed" >上传文件</Button>
+            </Upload>
+        </span>
     </div>
     <div>
         <Table DataSource="data" ScrollY="600px" PageSize="10"
@@ -76,17 +87,41 @@
 @*新建文件夹*@
 <Modal Title="新建文件夹"
        Visible="@_visibleCreateDirectory"
-       OnOk="@CreateDirectory"
+       OnOk="()=>{_visibleCreateDirectory=false;}"
        OnCancel="()=>{_visibleCreateDirectory=false;}">
-
+    <Form Model="@createDirectoryData"
+          LabelColSpan="8"
+          WrapperColSpan="16"
+          OnFinish="CreateDirectory">
+        <FormItem Label="文件夹名称：">
+            <Input @bind-Value="@context.Name" />
+        </FormItem>
+        <FormItem WrapperColOffset="8" WrapperColSpan="16">
+            <Button Type="@ButtonType.Primary" HtmlType="submit">
+                创建
+            </Button>
+        </FormItem>
+    </Form>
 </Modal>
 @code {
+    Dictionary<string, object> attrs = new Dictionary<string, object>
+    {
+        {"Name", "files" },
+        {"Multiple", true }
+    };
+    private string uploading
+    {
+        get
+        {
+            return "/api/File/CreateFile?path=" + _path;
+        }
+    }
     private List<FilesDto> data = new List<FilesDto>();
     /// <summary>
     /// 选择的数据
     /// </summary>
-    private IEnumerable<FilesDto> selectedFiles;
-    private string? _path { get; set; } = @"/";
+    private IEnumerable<FilesDto>? selectedFiles;
+    private  string? _path { get; set; } = @"/";
     /// <summary>
     /// 重命名文件或者文件夹弹窗
     /// </summary>
@@ -107,8 +142,17 @@
     /// 编辑东西临时
     /// </summary>
     private FilesDto? _updateFileData = null;
+
     private bool _visibleCreateDirectory = false;
     private string? _updateNewName;
+    class CreateDirectoryData
+    {
+        public string? Name { get; set; }
+    }
+    private CreateDirectoryData createDirectoryData = new CreateDirectoryData();
+    List<UploadFileItem> fileList = new List<UploadFileItem>
+    {
+    };
     /// <summary>
     /// 初始化
     /// </summary> <summary>
@@ -124,13 +168,34 @@
     {
         await GetFileData();
     }
+    bool HandleFileList(List<UploadFileItem> fileItems)
+    {
+        return true;
+    }
+    void HandleChange(UploadInfo fileinfo)
+    {
+        if(fileList.Count > 2)
+        {
+            fileList.RemoveRange(0, fileList.Count - 2);
+        }
+        fileList.Where(file => file.State == UploadState.Success && !string.IsNullOrWhiteSpace(file.Response)).ForEach(file =>
+        {
+            Console.WriteLine(file.FileName);
+        });
+    }
+
     /// <summary>
     /// 新建文件夹
     /// </summary>
-    private void CreateDirectory()
+    private async void CreateDirectory(EditContext create)
     {
-
-
+        var result = await fileApi.CreateDirectory(_path, createDirectoryData.Name!);
+        _visibleCreateDirectory = false;
+        if (result.StatusCode == 200)
+        {
+            await _message.Success("创建完成");
+        }
+        await GetFileData();
     }
     /// <summary>
     /// 压缩文件夹

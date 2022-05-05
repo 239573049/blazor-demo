@@ -88,6 +88,12 @@ public interface IFileService
     /// <param name="path"></param>
     /// <param name="name"></param>
     string CreateDirectory(string path,string name);
+    /// <summary>
+    /// 上传文件
+    /// </summary>
+    /// <param name="stream"></param>
+    /// <returns></returns>
+    bool CreateFile(List<CreateFileDto> stream);
 }
 public class FileService : IFileService
 {
@@ -115,6 +121,20 @@ public class FileService : IFileService
         path = Path.Combine(path, name);
         _= Directory.CreateDirectory(path);
         return path;
+    }
+
+    public bool CreateFile(List<CreateFileDto> stream)
+    {
+        foreach (var d in stream)
+        {
+            var file= File.Create(d.Path!);
+            var bytes= new byte[d.stream.Length];
+            d.stream.Read(bytes, 0, bytes.Length);
+            file.Write(bytes,0, bytes.Length);
+            file.Close();
+            bytes = null;
+        }
+        return true;
     }
 
     public bool DeleteAll(List<DeleteAllDto> paths)

@@ -1,12 +1,9 @@
+using System.Reflection;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using BlazorApp.Server.Global;
 using BlazorApp.Server.Hubs;
 using BlazorApp.Server.Jobs;
-using Quartz;
-using Quartz.Impl;
-using Quartz.Spi;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 

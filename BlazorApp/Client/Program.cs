@@ -36,6 +36,7 @@ httpHelper.AddResponseBodyHandling(a =>
 {
     var now = DateTime.Now;
     Console.WriteLine("接收处理时间：" + DateTime.Now.ToFileTimeUtc().ToString());
+    
 });
 builder.Services.AddHttpClientHelperExtensions(httpHelper);
 
